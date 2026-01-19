@@ -1,6 +1,9 @@
 #include "sphere.h"
 #include <GL/glew.h>
 #include <cmath>
+#ifndef M_PI
+    #define M_PI 3.14159265358979323846
+#endif
 
 Sphere::Sphere(Shader* shader_program, int sector_count, int stack_count) :
     Shape(shader_program), sector_count(sector_count), stack_count(stack_count)
