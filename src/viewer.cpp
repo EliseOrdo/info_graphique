@@ -74,7 +74,12 @@ void Viewer::run()
         glm::mat4 tra_mat = glm::mat4(1.0f);
         glm::mat4 sca_mat = glm::mat4(1.0f);
         glm::mat4 view = tra_mat * rot_mat * sca_mat;
-
+        
+        float radius = 10.0f;
+        float camX = sin(glfwGetTime()) * radius;
+        float camZ = cos(glfwGetTime()) * radius;
+        view = glm::lookAt(glm::vec3(camX, 0.0, camZ), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 1.0, 0.0));
+        
         glm::mat4 projection = glm::perspective(glm::radians(45.0f), 1.0f, 0.1f, 10.0f);
 
         scene_root->draw(model, view, projection);
