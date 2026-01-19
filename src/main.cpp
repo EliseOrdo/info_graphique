@@ -20,7 +20,7 @@ int main()
 
     Shader *texture_shader = new Shader(shader_dir + "texture.vert", shader_dir + "texture.frag");
 
-    Texture *texture = new Texture("./textures/texture1.png");
+    Texture *texture = new Texture("C:/Users/tipha/OneDrive/Documents/Polytech/ET3/Computer_Graphics/Projet/textures/texture1.png");  // chemin Tiph : C:/Users/tipha/OneDrive/Documents/Polytech/ET3/Computer_Graphics/Projet/textures/texture1.png
     Shape* sphere1 = new TexturedSphere(texture_shader, texture);
     glm::mat4 sphere1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(-1.0f, 0.0f, -4.0f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
