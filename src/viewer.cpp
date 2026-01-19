@@ -62,6 +62,11 @@ Viewer::Viewer(int width, int height)
 
 void Viewer::run()
 {
+
+    glm::vec3 cameraPos   = glm::vec3(0.0f, 0.0f,  0.0f);
+    glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, 1.0f);
+    glm::vec3 cameraUp    = glm::vec3(0.0f, 1.0f,  0.0f);
+
     // Main render loop for this OpenGL window
     while (!glfwWindowShouldClose(win))
     {
@@ -74,11 +79,30 @@ void Viewer::run()
         glm::mat4 tra_mat = glm::mat4(1.0f);
         glm::mat4 sca_mat = glm::mat4(1.0f);
         glm::mat4 view = tra_mat * rot_mat * sca_mat;
+
+
+        //Mouvements
+        float cameraSpeed = 0.05f; // adjust accordingly
+        if (glfwGetKey(win, GLFW_KEY_W) == GLFW_PRESS){
+            cameraPos -= cameraSpeed * cameraFront;
+        }
+        if (glfwGetKey(win, GLFW_KEY_S) == GLFW_PRESS){
+            cameraPos += cameraSpeed * cameraFront;
+        }
+        if (glfwGetKey(win, GLFW_KEY_A) == GLFW_PRESS){
+            cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+        }
+        if (glfwGetKey(win, GLFW_KEY_D) == GLFW_PRESS){
+            cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+        }
+
         
-        float radius = 10.0f;
+        /*float radius = 10.0f;
         float camX = sin(glfwGetTime()) * radius;
         float camZ = cos(glfwGetTime()) * radius;
-        view = glm::lookAt(glm::vec3(camX, 0.0, camZ), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 1.0, 0.0));
+        view = glm::lookAt(glm::vec3(camX, 0.0, camZ), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 1.0, 0.0));*/
+        
+        view = glm::lookAt(cameraPos, cameraPos - cameraFront, cameraUp);
         
         glm::mat4 projection = glm::perspective(glm::radians(45.0f), 1.0f, 0.1f, 10.0f);
 
