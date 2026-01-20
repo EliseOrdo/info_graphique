@@ -67,42 +67,45 @@ void Viewer::run()
     glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, 1.0f);
     glm::vec3 cameraUp    = glm::vec3(0.0f, 1.0f,  0.0f);
 
+    glm::mat4 model = glm::mat4(1.0f);
+
+    glm::mat4 rot_mat = glm::mat4(1.0f);
+    glm::mat4 tra_mat = glm::mat4(1.0f);
+    glm::mat4 sca_mat = glm::mat4(1.0f);
+    glm::mat4 view = tra_mat * rot_mat * sca_mat;
+
     // Main render loop for this OpenGL window
     while (!glfwWindowShouldClose(win))
     {
         // clear draw buffer
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        glm::mat4 model = glm::mat4(1.0f);
-
-        glm::mat4 rot_mat = glm::mat4(1.0f);
-        glm::mat4 tra_mat = glm::mat4(1.0f);
-        glm::mat4 sca_mat = glm::mat4(1.0f);
-        glm::mat4 view = tra_mat * rot_mat * sca_mat;
-
-
         //Mouvements
-        float cameraSpeed = 0.05f; // adjust accordingly
+        float speed = 0.5f; // adjust accordingly
         if (glfwGetKey(win, GLFW_KEY_W) == GLFW_PRESS){
-            cameraPos -= cameraSpeed * cameraFront;
+            view += glm::translate(glm::mat4(speed), glm::vec3(0.0f, 0.0f, 1.0f));
         }
         if (glfwGetKey(win, GLFW_KEY_S) == GLFW_PRESS){
-            cameraPos += cameraSpeed * cameraFront;
+            view += glm::translate(glm::mat4(speed), glm::vec3(0.0f, 0.0f, -1.0f));
         }
         if (glfwGetKey(win, GLFW_KEY_A) == GLFW_PRESS){
-            cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+            view += glm::translate(glm::mat4(speed), glm::vec3(1.0f, 0.0f, 0.0f));
         }
         if (glfwGetKey(win, GLFW_KEY_D) == GLFW_PRESS){
-            cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+            view += glm::translate(glm::mat4(speed), glm::vec3(-1.0f, 0.0f, 0.0f));
         }
-
-        
-        /*float radius = 10.0f;
-        float camX = sin(glfwGetTime()) * radius;
-        float camZ = cos(glfwGetTime()) * radius;
-        view = glm::lookAt(glm::vec3(camX, 0.0, camZ), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 1.0, 0.0));*/
-        
-        view = glm::lookAt(cameraPos, cameraPos - cameraFront, cameraUp);
+        if (glfwGetKey(win, GLFW_KEY_UP) == GLFW_PRESS){
+            continue;
+        }
+        if (glfwGetKey(win, GLFW_KEY_DOWN) == GLFW_PRESS){
+            continue;
+        }
+        if (glfwGetKey(win, GLFW_KEY_RIGHT) == GLFW_PRESS){
+            
+        }
+        if (glfwGetKey(win, GLFW_KEY_LEFT) == GLFW_PRESS){
+            
+        }
         
         glm::mat4 projection = glm::perspective(glm::radians(45.0f), 1.0f, 0.1f, 10.0f);
 
