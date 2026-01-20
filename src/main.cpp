@@ -25,8 +25,8 @@ int main()
     std::string elise = "/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/";
     std::string tiph = "C:/Users/tipha/OneDrive/Documents/Polytech/ET3/Computer_Graphics/Projet/textures/";
 
-    float candle_height = 0.5;
-    float candle_radius = 0.05;
+    float candle_height = 0.25;
+    float candle_radius = 0.025;
 
     Shape* candle = new Cylinder(phong_shader, glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 1.0f),
                                 candle_height, candle_radius);

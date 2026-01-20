@@ -72,7 +72,7 @@ void Viewer::run()
     glm::mat4 tra_mat = glm::mat4(1.0f);
     glm::mat4 sca_mat = glm::mat4(1.0f);
 
-    glm::vec3 cameraPos   = glm::vec3(0.0f, 0.0f,  0.0f); //position de la caméra
+    glm::vec3 cameraPos   = glm::vec3(0.0f, 0.25f,  0.0f); //position de la caméra
     glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f); //
     glm::vec3 cameraUp    = glm::vec3(0.0f, 1.0f,  0.0f); //
 
