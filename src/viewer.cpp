@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <glm/glm.hpp>
+#include <unistd.h>
 #include "glm/ext.hpp"
 #include <glm/gtc/matrix_transform.hpp>
 
@@ -62,37 +63,43 @@ Viewer::Viewer(int width, int height)
 
 void Viewer::run()
 {
+    float deltaTime = 0.0f;	// time between current frame and last frame
+    float lastFrame = 0.0f;
 
-    glm::vec3 cameraPos   = glm::vec3(0.0f, 0.0f,  0.0f);
-    glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, 1.0f);
-    glm::vec3 cameraUp    = glm::vec3(0.0f, 1.0f,  0.0f);
-
-    glm::mat4 model = glm::mat4(1.0f);
+    glm::mat4 model = glm::mat4(3.0f);
 
     glm::mat4 rot_mat = glm::mat4(1.0f);
     glm::mat4 tra_mat = glm::mat4(1.0f);
     glm::mat4 sca_mat = glm::mat4(1.0f);
-    glm::mat4 view = tra_mat * rot_mat * sca_mat;
+
+    glm::vec3 cameraPos   = glm::vec3(0.0f, 0.0f,  3.0f);
+    glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+    glm::vec3 cameraUp    = glm::vec3(0.0f, 1.0f,  0.0f);
 
     // Main render loop for this OpenGL window
     while (!glfwWindowShouldClose(win))
     {
+
+        float currentFrame = static_cast<float>(glfwGetTime());
+        deltaTime = currentFrame - lastFrame;
+        lastFrame = currentFrame;
+
         // clear draw buffer
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         //Mouvements
-        float speed = 0.5f; // adjust accordingly
+        float speed = 0.05f; // adjust accordingly
         if (glfwGetKey(win, GLFW_KEY_W) == GLFW_PRESS){
-            view += glm::translate(glm::mat4(speed), glm::vec3(0.0f, 0.0f, 1.0f));
+            cameraPos += speed * cameraFront;
         }
         if (glfwGetKey(win, GLFW_KEY_S) == GLFW_PRESS){
-            view += glm::translate(glm::mat4(speed), glm::vec3(0.0f, 0.0f, -1.0f));
+            cameraPos -= speed * cameraFront;
         }
         if (glfwGetKey(win, GLFW_KEY_A) == GLFW_PRESS){
-            view += glm::translate(glm::mat4(speed), glm::vec3(1.0f, 0.0f, 0.0f));
+            cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * speed;
         }
         if (glfwGetKey(win, GLFW_KEY_D) == GLFW_PRESS){
-            view += glm::translate(glm::mat4(speed), glm::vec3(-1.0f, 0.0f, 0.0f));
+            cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * speed;
         }
         if (glfwGetKey(win, GLFW_KEY_UP) == GLFW_PRESS){
             continue;
@@ -107,6 +114,8 @@ void Viewer::run()
             
         }
         
+        glm::mat4 view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
+
         glm::mat4 projection = glm::perspective(glm::radians(45.0f), 1.0f, 0.1f, 10.0f);
 
         scene_root->draw(model, view, projection);
@@ -116,6 +125,7 @@ void Viewer::run()
 
         // flush render commands, and swap draw buffers
         glfwSwapBuffers(win);
+        //sleep(0.75);
     }
 
     /* close GL context and any other GLFW resources */
