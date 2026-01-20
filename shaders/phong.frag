@@ -12,21 +12,21 @@ void main()
 {
     // ambient
     // TODO define ambient strength
-    vec3 ambient = vec3(0);   // TODO calculate corrcet ambient color
+    vec3 ambient = lightColor * vec3(0.9);   // TODO calculate corrcet ambient color
 
     // diffuse 
     vec3 norm = normalize(Normal);
-    vec3 lightDir = vec3(0);// TODO calculate light direction
-    float diff = 0.0; // TODO calculate correct diffuse strength
-    vec3 diffuse = diff * lightColor;
+    vec3 lightDir = LightPos - FragPos;// TODO calculate light direction
+    float diff = dot(lightDir, norm); // TODO calculate correct diffuse strength
+    vec3 diffuse = lightColor * vec3(0.6) * diff;
     
     // specular
     float specularStrength = 0.3;
     vec3 viewDir = normalize(-FragPos); // the viewer is always at (0,0,0) in view-space, so viewDir is (0,0,0) - Position => -Position
     vec3 reflectDir = reflect(-lightDir, norm);  
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);
-    vec3 specular = vec3(0);   // TODO calculate corrcet specular color
+    vec3 specular = lightColor * vec3(0.3) * spec;   // TODO calculate corrcet specular color
     
-    vec3 result = objectColor; // TODO apply ambient, diffuse and specular to object color
+    vec3 result = (ambient + diffuse + specular) * objectColor; // TODO apply ambient, diffuse and specular to object color
     FragColor = vec4(result, 1.0);
 }

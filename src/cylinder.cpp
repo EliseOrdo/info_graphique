@@ -8,10 +8,6 @@ Cylinder::Cylinder(Shader *shader_program, glm::vec3 light_position, glm::vec3 l
     float height, float radius, int slices)
     : Shape(shader_program), light_position(light_position), light_color(light_color), object_color(object_color)
 {
-    light_pos_loc = glGetUniformLocation(this->shader_program_, "lightPos");
-    light_color_loc = glGetUniformLocation(this->shader_program_, "lightColor");
-    object_color_loc = glGetUniformLocation(this->shader_program_, "objectColor");
-
     // generate vertices
     std::vector<glm::vec3> vertices;
     for (int i = 0; i < slices; i++) {
@@ -58,7 +54,13 @@ Cylinder::Cylinder(Shader *shader_program, glm::vec3 light_position, glm::vec3 l
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), indices.data(), GL_STATIC_DRAW);
 
     num_indices = static_cast<unsigned int>(indices.size());
+
+    light_pos_loc = glGetUniformLocation(this->shader_program_, "lightPos");
+    light_color_loc = glGetUniformLocation(this->shader_program_, "lightColor");
+    object_color_loc = glGetUniformLocation(this->shader_program_, "objectColor");
+
 }
+
 
 void Cylinder::draw(glm::mat4& model, glm::mat4& view, glm::mat4& projection)
 {   
