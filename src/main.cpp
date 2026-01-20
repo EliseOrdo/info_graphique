@@ -4,6 +4,7 @@
 #include "texture.h"
 #include "node.h"
 #include "shader.h"
+#include "cylinder.h"
 #include <string>
 
 #ifndef SHADER_DIR
@@ -19,10 +20,60 @@ int main()
     std::string shader_dir = SHADER_DIR;
 
     Shader *texture_shader = new Shader(shader_dir + "texture.vert", shader_dir + "texture.frag");
+    Shader *phong_shader = new Shader(shader_dir + "phong.vert", shader_dir + "phong.frag");
 
-    Texture *texture = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture1.png");
-        // chemin Elise : /Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture1.png
-        // chemin Tiph : C:/Users/tipha/OneDrive/Documents/Polytech/ET3/Computer_Graphics/Projet/textures/texture1.png
+    std::string elise = "/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/";
+    std::string tiph = "C:/Users/tipha/OneDrive/Documents/Polytech/ET3/Computer_Graphics/Projet/textures/";
+
+    float candle_height = 0.5;
+    float candle_radius = 0.05;
+
+    Shape* candle = new Cylinder(phong_shader, glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 1.0f),
+                                candle_height, candle_radius);
+    glm::mat4 candle_mat = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, 0.0f, 0.0f))
+        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
+        * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+    
+    Node* candle_node = new Node(candle_mat);
+    candle_node-> add(candle);
+    viewer.scene_root->add(candle_node);
+
+
+    Shape* candle2 = new Cylinder(phong_shader, glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 1.0f),
+                                candle_height, candle_radius);
+    glm::mat4 candle_mat2 = glm::translate(glm::mat4(1.0f), glm::vec3(-1.0f, 0.0f, 0.0f))
+        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
+        * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+    
+    Node* candle_node2 = new Node(candle_mat2);
+    candle_node2-> add(candle2);
+    viewer.scene_root->add(candle_node2);
+
+
+    Shape* candle3 = new Cylinder(phong_shader, glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 1.0f),
+                                candle_height, candle_radius);
+    glm::mat4 candle_mat3 = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -1.0f))
+        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
+        * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+    
+    Node* candle_node3 = new Node(candle_mat3);
+    candle_node3-> add(candle3);
+    viewer.scene_root->add(candle_node3);
+
+
+    Shape* candle4 = new Cylinder(phong_shader, glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 1.0f),
+                                candle_height, candle_radius);
+    glm::mat4 candle_mat4 = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 1.0f))
+        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
+        * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+    
+    Node* candle_node4 = new Node(candle_mat4);
+    candle_node4-> add(candle4);
+    viewer.scene_root->add(candle_node4);
+
+
+    /* Texture *texture = new Texture(elise+"texture1.png");
+
     Shape* sphere1 = new TexturedSphere(texture_shader, texture);
     glm::mat4 sphere1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(-1.0f, 0.0f, -4.0f))
         * glm::scale(glm::mat4(10.0f), glm::vec3(1.0f, 1.0f, 1.0f))
@@ -33,8 +84,6 @@ int main()
     sphere1_node->add(sphere1);
 
     viewer.scene_root->add(sphere1_node);
-    
-    Shader *phong_shader = new Shader(shader_dir + "phong.vert", shader_dir + "phong.frag");
 
     Shape* sphere2 = new LightingSphere(phong_shader, glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 1.0f));
     glm::mat4 sphere2_mat = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, 0.0f, -4.0f))
@@ -45,7 +94,7 @@ int main()
 
     sphere2_node->add(sphere2);
 
-    viewer.scene_root->add(sphere2_node);
+    viewer.scene_root->add(sphere2_node); */
 
     viewer.run();
 }
