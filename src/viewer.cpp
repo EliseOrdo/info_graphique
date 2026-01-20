@@ -72,9 +72,12 @@ void Viewer::run()
     glm::mat4 tra_mat = glm::mat4(1.0f);
     glm::mat4 sca_mat = glm::mat4(1.0f);
 
-    glm::vec3 cameraPos   = glm::vec3(0.0f, 0.0f,  3.0f);
-    glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
-    glm::vec3 cameraUp    = glm::vec3(0.0f, 1.0f,  0.0f);
+    glm::vec3 cameraPos   = glm::vec3(0.0f, 0.0f,  3.0f); //position de la caméra
+    glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f); //
+    glm::vec3 cameraUp    = glm::vec3(0.0f, 1.0f,  0.0f); //
+
+    float yaw   = -90.0f;	// angle selon les y (0 pointe vers la droite donc on mets -90)
+    float pitch =  0.0f;    //angle selon les x
 
     // Main render loop for this OpenGL window
     while (!glfwWindowShouldClose(win))
@@ -102,17 +105,29 @@ void Viewer::run()
             cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * speed;
         }
         if (glfwGetKey(win, GLFW_KEY_UP) == GLFW_PRESS){
-            continue;
+            pitch += 1;
         }
         if (glfwGetKey(win, GLFW_KEY_DOWN) == GLFW_PRESS){
-            continue;
+            pitch -= 1;
         }
         if (glfwGetKey(win, GLFW_KEY_RIGHT) == GLFW_PRESS){
-            
+            yaw += 1;
         }
         if (glfwGetKey(win, GLFW_KEY_LEFT) == GLFW_PRESS){
-            
+            yaw -= 1;
         }
+
+        //pour pas qua ça retourne la caméra (on peut pas regarder en arrière en levant ou baissant la tête)
+        if (pitch > 89.0f)
+            pitch = 89.0f;
+        if (pitch < -89.0f)
+            pitch = -89.0f;
+
+        glm::vec3 front;
+        front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
+        front.y = sin(glm::radians(pitch));
+        front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
+        cameraFront = glm::normalize(front);
         
         glm::mat4 view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
 
