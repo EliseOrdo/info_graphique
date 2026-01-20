@@ -20,7 +20,13 @@ int main()
 
     Shader *texture_shader = new Shader(shader_dir + "texture.vert", shader_dir + "texture.frag");
 
+<<<<<<< HEAD
     Texture *texture = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/caillou.png");  // chemin Tiph : C:/Users/tipha/OneDrive/Documents/Polytech/ET3/Computer_Graphics/Projet/textures/texture1.png  chemin lina : C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/caillou.png
+=======
+    Texture *texture = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture1.png");
+        // chemin Elise : /Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture1.png
+        // chemin Tiph : C:/Users/tipha/OneDrive/Documents/Polytech/ET3/Computer_Graphics/Projet/textures/texture1.png
+>>>>>>> 84aec33bfe3162d0eba0d8b54d4996994219fd9c
     Shape* sphere1 = new TexturedSphere(texture_shader, texture);
     glm::mat4 sphere1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(-1.0f, 0.0f, -4.0f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
