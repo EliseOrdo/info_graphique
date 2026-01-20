@@ -16,7 +16,7 @@ Lightcylinder::Lightcylinder(Shader *shader_program, glm::vec3 light_position, g
 void Lightcylinder::draw(glm::mat4& model, glm::mat4& view, glm::mat4& projection)
 {
 
-    Lightcylinder::draw(model, view, projection);
+    Cylinder::draw(model, view, projection);
 
     // set uniform variables for light and color
     glUniform3fv(light_pos_loc, 1, glm::value_ptr(light_position));

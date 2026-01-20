@@ -28,6 +28,17 @@ int main()
     float candle_height = 0.25;
     float candle_radius = 0.025;
 
+    Shape* candle = new LightingSphere(phong_shader, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 1.0f, 1.0f));
+    glm::mat4 candle_mat = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, 0.0f, 0.0f))
+        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
+        * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+    
+    Node* candle_node = new Node(candle_mat);
+    candle_node-> add(candle);
+    viewer.scene_root->add(candle_node);
+
+    /*
+
     Shape* candle = new Lightcylinder(phong_shader, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 1.0f, 1.0f), 
     candle_height, candle_radius);
     glm::mat4 candle_mat = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, 0.0f, 0.0f))
@@ -38,7 +49,6 @@ int main()
     candle_node-> add(candle);
     viewer.scene_root->add(candle_node);
 
-    /*
     Shape* candle2 = new Cylinder(phong_shader, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 1.0f, 1.0f),
                                 candle_height, candle_radius);
     glm::mat4 candle_mat2 = glm::translate(glm::mat4(1.0f), glm::vec3(-1.0f, 0.0f, 0.0f))
