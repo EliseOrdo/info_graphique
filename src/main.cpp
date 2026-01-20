@@ -20,10 +20,12 @@ int main()
 
     Shader *texture_shader = new Shader(shader_dir + "texture.vert", shader_dir + "texture.frag");
 
-    Texture *texture = new Texture("C:/Users/tipha/OneDrive/Documents/Polytech/ET3/Computer_Graphics/Projet/textures/texture1.png");  // chemin Tiph : C:/Users/tipha/OneDrive/Documents/Polytech/ET3/Computer_Graphics/Projet/textures/texture1.png
+    Texture *texture = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture1.png");
+        // chemin Elise : /Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture1.png
+        // chemin Tiph : C:/Users/tipha/OneDrive/Documents/Polytech/ET3/Computer_Graphics/Projet/textures/texture1.png
     Shape* sphere1 = new TexturedSphere(texture_shader, texture);
     glm::mat4 sphere1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(-1.0f, 0.0f, -4.0f))
-        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
+        * glm::scale(glm::mat4(10.0f), glm::vec3(1.0f, 1.0f, 1.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 
     Node* sphere1_node = new Node(sphere1_mat);
@@ -36,7 +38,7 @@ int main()
 
     Shape* sphere2 = new LightingSphere(phong_shader, glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 1.0f));
     glm::mat4 sphere2_mat = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, 0.0f, -4.0f))
-        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
+        * glm::scale(glm::mat4(10.0f), glm::vec3(1.0f, 1.0f, 1.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
     
     Node* sphere2_node = new Node(sphere2_mat);
