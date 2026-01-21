@@ -17,7 +17,7 @@ uniform vec3 objectColor;
 
 void main() {
     //vec4 out_color = texture(diffuse_map, frag_tex_coords);
-    vec3 texColor = texture(diffuseTexture, TexCoord).rgb;
+    vec3 texColor = texture(diffuse_map, frag_tex_coords).rgb;
 
     // ambient
     // TODO define ambient strength
