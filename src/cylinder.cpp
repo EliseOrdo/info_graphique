@@ -70,7 +70,7 @@ void Cylinder::draw(glm::mat4& model, glm::mat4& view, glm::mat4& projection)
 
     glDrawElements(GL_TRIANGLE_STRIP, num_indices, GL_UNSIGNED_INT, nullptr);
 
-        glUniform3fv(light_pos_loc, 1, glm::value_ptr(light_position));
+    glUniform3fv(light_pos_loc, 1, glm::value_ptr(light_position));
     glUniform3fv(light_color_loc, 1, glm::value_ptr(light_color));
     glUniform3fv(object_color_loc, 1, glm::value_ptr(object_color));
 }

@@ -4,6 +4,7 @@
 #include "texture.h"
 #include "node.h"
 #include "shader.h"
+#include "square.h"
 #include <string>
 
 #ifndef SHADER_DIR
@@ -20,21 +21,24 @@ int main()
 
     Shader *texture_shader = new Shader(shader_dir + "texture.vert", shader_dir + "texture.frag");
 
+    Shader *phong_shader = new Shader(shader_dir + "phong.vert", shader_dir + "phong.frag");
+
     Texture *texture = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture1.png");
         // chemin Elise : /Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture1.png
         // chemin Tiph : C:/Users/tipha/OneDrive/Documents/Polytech/ET3/Computer_Graphics/Projet/textures/texture1.png
-    Shape* sphere1 = new TexturedSphere(texture_shader, texture);
-    glm::mat4 sphere1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(-1.0f, 0.0f, -4.0f))
+
+    Shape* carre = new Square(phong_shader, 1, 1);
+    glm::mat4 carre_mat = glm::translate(glm::mat4(1.0f), glm::vec3(-1.0f, 0.0f, -4.0f))
         * glm::scale(glm::mat4(10.0f), glm::vec3(1.0f, 1.0f, 1.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 
-    Node* sphere1_node = new Node(sphere1_mat);
+    Node* square_node = new Node(carre_mat);
 
-    sphere1_node->add(sphere1);
+    square_node->add(carre);
 
-    viewer.scene_root->add(sphere1_node);
+    viewer.scene_root->add(square_node);
     
-    Shader *phong_shader = new Shader(shader_dir + "phong.vert", shader_dir + "phong.frag");
+    
 
     Shape* sphere2 = new LightingSphere(phong_shader, glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 1.0f));
     glm::mat4 sphere2_mat = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, 0.0f, -4.0f))
