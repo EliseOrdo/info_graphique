@@ -17,6 +17,7 @@ uniform vec3 objectColor;
 
 void main() {
     out_color = texture(diffuse_map, frag_tex_coords);
+    vec3 texColor = texture(diffuseTexture, TexCoord).rgb;
 
     // ambient
     // TODO define ambient strength
@@ -36,7 +37,8 @@ void main() {
     vec3 reflectDir = reflect(-lightDir, norm);  
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);
     vec3 specular = lightColor*specularStrength*spec;   // TODO calculate corrcet specular color
-    
-    vec3 result = (ambient + diffuse+ specular) * objectColor ; // TODO apply ambient, diffuse and specular to object color
+
+
+    vec3 result = (ambient + diffuse+ specular) * texColor ; // TODO apply ambient, diffuse and specular to object color
     FragColor = vec4(result, 1.0);
 }
