@@ -2,7 +2,7 @@
 
 uniform sampler2D diffuse_map;
 
-out vec4 texColor;
+//out vec3 texColor;
 out vec4 FragColor;
 
 in vec2 frag_tex_coords;
@@ -16,7 +16,7 @@ uniform vec3 objectColor;
 
 
 void main() {
-    out_color = texture(diffuse_map, frag_tex_coords);
+    //vec4 out_color = texture(diffuse_map, frag_tex_coords);
     vec3 texColor = texture(diffuseTexture, TexCoord).rgb;
 
     // ambient
