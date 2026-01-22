@@ -22,7 +22,7 @@ int main()
 
     Shader *texlight_shader = new Shader(shader_dir + "texlight.vert", shader_dir + "texlight.frag");
 
-    Texture *texture = new Texture("C:/Users/tipha/OneDrive/Documents/Polytech/ET3/Computer_Graphics/Projet_info_graphique/textures/texture1.png");
+    Texture *texture = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture1.png");
         // chemin Elise : /Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture1.png
         // chemin Tiph : C:/Users/tipha/OneDrive/Documents/Polytech/ET3/Computer_Graphics/Projet_info_graphique/textures/texture1.png
     Shape* sphere1 = new TexturedSphere(texlight_shader, texture);
