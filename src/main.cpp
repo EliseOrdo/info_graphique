@@ -18,9 +18,9 @@ int main()
     // get shader directory
     std::string shader_dir = SHADER_DIR;
 
-    //Shader *texture_shader = new Shader(shader_dir + "texture.vert", shader_dir + "texture.frag");
+    Shader *texture_shader = new Shader(shader_dir + "texture.vert", shader_dir + "texture.frag");
 
-    Shader* texlight_shader = new Shader(shader_dir + "texlight.vert", shader_dir + "texlight.frag");
+    Shader *texlight_shader = new Shader(shader_dir + "texlight.vert", shader_dir + "texlight.frag");
 
     Texture *texture = new Texture("C:/Users/tipha/OneDrive/Documents/Polytech/ET3/Computer_Graphics/Projet_info_graphique/textures/texture1.png");
         // chemin Elise : /Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture1.png
@@ -36,7 +36,7 @@ int main()
 
     viewer.scene_root->add(sphere1_node);
     
-    //Shader *phong_shader = new Shader(shader_dir + "phong.vert", shader_dir + "phong.frag");
+    Shader *phong_shader = new Shader(shader_dir + "phong.vert", shader_dir + "phong.frag");
 
     Shape* sphere2 = new LightingSphere(texlight_shader, glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 1.0f));
     glm::mat4 sphere2_mat = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, 0.0f, -4.0f))
