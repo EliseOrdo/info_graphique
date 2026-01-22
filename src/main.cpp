@@ -22,8 +22,8 @@ int main()
     Shader *texture_shader = new Shader(shader_dir + "texture.vert", shader_dir + "texture.frag");
     Shader *phong_shader = new Shader(shader_dir + "phong.vert", shader_dir + "phong.frag");
 
-    std::string elise = "/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/";
-    std::string tiph = "C:/Users/tipha/OneDrive/Documents/Polytech/ET3/Computer_Graphics/Projet/textures/";
+//    std::string elise = "/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/";
+    //std::string tiph = "C:/Users/tipha/OneDrive/Documents/Polytech/ET3/Computer_Graphics/Projet/textures/";
 
     float candle_height = 0.25;
     float candle_radius = 0.025;
