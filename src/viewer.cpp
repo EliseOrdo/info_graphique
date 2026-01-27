@@ -106,6 +106,12 @@ void Viewer::run()
         if (glfwGetKey(win, GLFW_KEY_D) == GLFW_PRESS){
             cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * speed;
         }
+        if (glfwGetKey(win, GLFW_KEY_SPACE) == GLFW_PRESS){
+            cameraPos += speed * cameraUp;
+        }
+        if (glfwGetKey(win, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS){
+            cameraPos -= speed * cameraUp;
+        }
         if (glfwGetKey(win, GLFW_KEY_UP) == GLFW_PRESS){
             pitch += 50*deltaTime;
         }
