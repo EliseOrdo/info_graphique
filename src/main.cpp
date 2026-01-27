@@ -134,28 +134,6 @@ int main()
 
     viewer.scene_root->add(sphere1_node);
 
-    Shape* sphere2 = new TexturedSphere(texlight_shader, texture2);
-    glm::mat4 sphere2_mat = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, 0.0f, -4.0f))
-        * glm::scale(glm::mat4(10.0f), glm::vec3(1.0f, 1.0f, 1.0f))
-        * glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-
-    Node* sphere2_node = new Node(sphere2_mat);
-
-    sphere2_node->add(sphere2);
-
-    viewer.scene_root->add(sphere2_node);
-
-    Shape* cylinder = new Cylinder(texlight_shader,texture,2, 0.1);
-    glm::mat4 cylinder_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -4.0f))
-        * glm::scale(glm::mat4(10.0f), glm::vec3(1.0f, 1.0f, 1.0f))
-        * glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-
-    Node* cylinder_node = new Node(cylinder_mat);
-
-    cylinder_node->add(cylinder);
-
-    viewer.scene_root->add(cylinder_node);
-
     //Shader *phong_shader = new Shader(shader_dir + "phong.vert", shader_dir + "phong.frag");
 
     /*Shape* sphere2 = new LightingSphere(texlight_shader, glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.01f, 0.0f, 0.01f), glm::vec3(0.0f, 0.0f, 1.0f));
