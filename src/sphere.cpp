@@ -1,6 +1,9 @@
 #include "sphere.h"
 #include <GL/glew.h>
 #include <cmath>
+#ifndef M_PI
+    #define M_PI 3.14159265358979323846
+#endif
 
 Sphere::Sphere(Shader* shader_program, int sector_count, int stack_count) :
     Shape(shader_program), sector_count(sector_count), stack_count(stack_count)
@@ -24,6 +27,10 @@ Sphere::Sphere(Shader* shader_program, int sector_count, int stack_count) :
     glBindBuffer(GL_ARRAY_BUFFER, buffers[1]);
     glBufferData(GL_ARRAY_BUFFER, normals.size() * sizeof(glm::vec3), &normals[0], GL_STATIC_DRAW);
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, nullptr);
+
+    // texture ?
+    /*glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, nullptr);
+    glEnableVertexAttribArray(2);*/
     
     // Index buffer
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffers[2]);

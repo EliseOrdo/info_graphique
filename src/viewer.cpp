@@ -62,18 +62,73 @@ Viewer::Viewer(int width, int height)
 
 void Viewer::run()
 {
+    float deltaTime = 0.0f;	// time between current frame and last frame
+    float lastFrame = 0.0f;
+
+    glm::mat4 model = glm::mat4(3.0f);
+
+    glm::mat4 rot_mat = glm::mat4(1.0f);
+    glm::mat4 tra_mat = glm::mat4(1.0f);
+    glm::mat4 sca_mat = glm::mat4(1.0f);
+
+    glm::vec3 cameraPos   = glm::vec3(0.0f, 0.25f,  0.0f); //position de la caméra
+    glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f); //
+    glm::vec3 cameraUp    = glm::vec3(0.0f, 1.0f,  0.0f); //
+
+    float yaw   = -90.0f;	// angle selon les y (0 pointe vers la droite donc on mets -90)
+    float pitch =  0.0f;    //angle selon les x
+
     // Main render loop for this OpenGL window
     while (!glfwWindowShouldClose(win))
     {
+
+        float currentFrame = static_cast<float>(glfwGetTime());
+        deltaTime = currentFrame - lastFrame;
+        lastFrame = currentFrame;
+
         // clear draw buffer
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        glm::mat4 model = glm::mat4(1.0f);
+        //Mouvements
+        float speed = 0.05f; // adjust accordingly
+        if (glfwGetKey(win, GLFW_KEY_W) == GLFW_PRESS){
+            cameraPos += speed * cameraFront;
+        }
+        if (glfwGetKey(win, GLFW_KEY_S) == GLFW_PRESS){
+            cameraPos -= speed * cameraFront;
+        }
+        if (glfwGetKey(win, GLFW_KEY_A) == GLFW_PRESS){
+            cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * speed;
+        }
+        if (glfwGetKey(win, GLFW_KEY_D) == GLFW_PRESS){
+            cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * speed;
+        }
+        if (glfwGetKey(win, GLFW_KEY_UP) == GLFW_PRESS){
+            pitch += 1;
+        }
+        if (glfwGetKey(win, GLFW_KEY_DOWN) == GLFW_PRESS){
+            pitch -= 1;
+        }
+        if (glfwGetKey(win, GLFW_KEY_RIGHT) == GLFW_PRESS){
+            yaw += 1;
+        }
+        if (glfwGetKey(win, GLFW_KEY_LEFT) == GLFW_PRESS){
+            yaw -= 1;
+        }
 
-        glm::mat4 rot_mat = glm::mat4(1.0f);
-        glm::mat4 tra_mat = glm::mat4(1.0f);
-        glm::mat4 sca_mat = glm::mat4(1.0f);
-        glm::mat4 view = tra_mat * rot_mat * sca_mat;
+        //pour pas qua ça retourne la caméra (on peut pas regarder en arrière en levant ou baissant la tête)
+        if (pitch > 89.0f)
+            pitch = 89.0f;
+        if (pitch < -89.0f)
+            pitch = -89.0f;
+
+        glm::vec3 front;
+        front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
+        front.y = sin(glm::radians(pitch));
+        front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
+        cameraFront = glm::normalize(front);
+        
+        glm::mat4 view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
 
         glm::mat4 projection = glm::perspective(glm::radians(45.0f), 1.0f, 0.1f, 10.0f);
 
@@ -84,6 +139,7 @@ void Viewer::run()
 
         // flush render commands, and swap draw buffers
         glfwSwapBuffers(win);
+        //sleep(0.75);
     }
 
     /* close GL context and any other GLFW resources */
