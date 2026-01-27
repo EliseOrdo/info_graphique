@@ -63,7 +63,7 @@ int main()
 
     float candle_height = 0.25;
     float candle_radius = 0.025;
-    
+
 
     Shape* candle = new Cylinder(texlight_shader, texture, 0.15f, 0.02);
 
@@ -76,7 +76,7 @@ int main()
     viewer.scene_root->add(candle_node);
 
 
-    Shape* candle2 = new Cylinder(texlight_shader, glm::vec3(0.2, 0.6, 0), 0.15f, 0.02);
+    Shape* candle2 = new Cylinder(texlight_shader, texture, 0.15f, 0.02);
     glm::mat4 candle_mat2 = glm::translate(glm::mat4(1.0f), glm::vec3(sqrt(3)/2, 0.0f, 0.5f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
@@ -86,7 +86,7 @@ int main()
     viewer.scene_root->add(candle_node2);
 
 
-    Shape* candle3 = new Cylinder(texlight_shader, glm::vec3(0.2, 0.6, 0), 0.15f, 0.02);
+    Shape* candle3 = new Cylinder(texlight_shader, texture, 0.15f, 0.02);
 
     glm::mat4 candle_mat3 = glm::translate(glm::mat4(1.0f), glm::vec3(sqrt(2)/2, 0.0f, sqrt(2)/2))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
@@ -97,7 +97,7 @@ int main()
     viewer.scene_root->add(candle_node3);
 
 
-    Shape* candle4 = new Cylinder(texlight_shader, glm::vec3(0.2, 0.6, 0), 0.15f, 0.02);
+    Shape* candle4 = new Cylinder(texlight_shader, texture, 0.15f, 0.02);
 
     glm::mat4 candle_mat4 = glm::translate(glm::mat4(1.0f), glm::vec3(0.5f, 0.0f, sqrt(3)/2))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
@@ -108,7 +108,7 @@ int main()
     viewer.scene_root->add(candle_node4);
 
 
-    Shape* candle5 = new Cylinder(texlight_shader, glm::vec3(0.2, 0.6, 0), 0.15f, 0.02);
+    Shape* candle5 = new Cylinder(texlight_shader, texture, 0.15f, 0.02);
 
     glm::mat4 candle_mat5 = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 1.0f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
@@ -119,7 +119,7 @@ int main()
     viewer.scene_root->add(candle_node5);
 
 
-    Shape* candle6 = new Cylinder(texlight_shader, glm::vec3(0.2, 0.6, 0), 0.15f, 0.02);
+    Shape* candle6 = new Cylinder(texlight_shader, texture, 0.15f, 0.02);
     glm::mat4 candle_mat6 = glm::translate(glm::mat4(1.0f), glm::vec3(-1.0f, 0.0f, 0.0f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
@@ -129,7 +129,7 @@ int main()
     viewer.scene_root->add(candle_node6);
 
 
-    Shape* candle7 = new Cylinder(texlight_shader, glm::vec3(0.2, 0.6, 0), 0.15f, 0.02);
+    Shape* candle7 = new Cylinder(texlight_shader, texture, 0.15f, 0.02);
     glm::mat4 candle_mat7 = glm::translate(glm::mat4(1.0f), glm::vec3(-sqrt(3)/2, 0.0f, 0.5f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
@@ -139,7 +139,7 @@ int main()
     viewer.scene_root->add(candle_node7);
 
 
-    Shape* candle8 = new Cylinder(texlight_shader, glm::vec3(0.2, 0.6, 0), 0.15f, 0.02);
+    Shape* candle8 = new Cylinder(texlight_shader, texture, 0.15f, 0.02);
 
     glm::mat4 candle_mat8 = glm::translate(glm::mat4(1.0f), glm::vec3(-sqrt(2)/2, 0.0f, sqrt(2)/2))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
@@ -150,7 +150,7 @@ int main()
     viewer.scene_root->add(candle_node8);
 
 
-    Shape* candle9 = new Cylinder(texlight_shader, glm::vec3(0.2, 0.6, 0), 0.15f, 0.02);
+    Shape* candle9 = new Cylinder(texlight_shader, texture, 0.15f, 0.02);
 
     glm::mat4 candle_mat9 = glm::translate(glm::mat4(1.0f), glm::vec3(-0.5f, 0.0f, sqrt(3)/2))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
@@ -163,7 +163,7 @@ int main()
 
 
 
-    Shape* candle10 = new Cylinder(texlight_shader, glm::vec3(0.2, 0.6, 0), 0.15f, 0.02);
+    Shape* candle10 = new Cylinder(texlight_shader, texture, 0.15f, 0.02);
     glm::mat4 candle_mat10 = glm::translate(glm::mat4(1.0f), glm::vec3(sqrt(3)/2, 0.0f, -0.5f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
@@ -173,7 +173,7 @@ int main()
     viewer.scene_root->add(candle_node10);
 
 
-    Shape* candle11 = new Cylinder(texlight_shader, glm::vec3(0.2, 0.6, 0), 0.15f, 0.02);
+    Shape* candle11 = new Cylinder(texlight_shader, texture, 0.15f, 0.02);
 
     glm::mat4 candle_mat11 = glm::translate(glm::mat4(1.0f), glm::vec3(sqrt(2)/2, 0.0f, -sqrt(2)/2))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
@@ -184,7 +184,7 @@ int main()
     viewer.scene_root->add(candle_node11);
 
 
-    Shape* candle12 = new Cylinder(texlight_shader, glm::vec3(0.2, 0.6, 0), 0.15f, 0.02);
+    Shape* candle12 = new Cylinder(texlight_shader, texture, 0.15f, 0.02);
 
     glm::mat4 candle_mat12 = glm::translate(glm::mat4(1.0f), glm::vec3(0.5f, 0.0f, -sqrt(3)/2))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
@@ -195,7 +195,7 @@ int main()
     viewer.scene_root->add(candle_node12);
 
 
-    Shape* candle13 = new Cylinder(texlight_shader, glm::vec3(0.2, 0.6, 0), 0.15f, 0.02);
+    Shape* candle13 = new Cylinder(texlight_shader, texture, 0.15f, 0.02);
 
     glm::mat4 candle_mat13 = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -1.0f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
@@ -206,7 +206,7 @@ int main()
     viewer.scene_root->add(candle_node13);
 
 
-    Shape* candle14 = new Cylinder(texlight_shader, glm::vec3(0.2, 0.6, 0), 0.15f, 0.02);
+    Shape* candle14 = new Cylinder(texlight_shader, texture, 0.15f, 0.02);
     glm::mat4 candle_mat14 = glm::translate(glm::mat4(1.0f), glm::vec3(-sqrt(3)/2, 0.0f, -0.5f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
@@ -216,7 +216,7 @@ int main()
     viewer.scene_root->add(candle_node14);
 
 
-    Shape* candle15 = new Cylinder(texlight_shader, glm::vec3(0.2, 0.6, 0), 0.15f, 0.02);
+    Shape* candle15 = new Cylinder(texlight_shader, texture, 0.15f, 0.02);
 
     glm::mat4 candle_mat15 = glm::translate(glm::mat4(1.0f), glm::vec3(-sqrt(2)/2, 0.0f, -sqrt(2)/2))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
@@ -227,7 +227,7 @@ int main()
     viewer.scene_root->add(candle_node15);
 
 
-    Shape* candle16 = new Cylinder(texlight_shader, glm::vec3(0.2, 0.6, 0), 0.15f, 0.02);
+    Shape* candle16 = new Cylinder(texlight_shader, texture, 0.15f, 0.02);
 
     glm::mat4 candle_mat16 = glm::translate(glm::mat4(1.0f), glm::vec3(-0.5f, 0.0f, -sqrt(3)/2))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
