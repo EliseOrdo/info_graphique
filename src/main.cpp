@@ -46,12 +46,14 @@ int main()
     std::vector<Light> light_list = {general_light,yellox};
 
     //define textures
-    Texture *texture = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/texture1.png");
+    Texture *texture = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/texture1.png");
         // chemin Elise : /Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture1.png
         // chemin Tiph : C:/Users/tipha/Documents/Projet_info_graphique/textures/texture1.png
+        // chemin Lina : C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/texture1.png
 
-    Texture *texture2 = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/texture2.jpg");
+    Texture *texture2 = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/texture2.jpg");
         //chemin Tiph : C:/Users/tipha/Documents/Projet_info_graphique/textures/texture2.jpg
+        //chemin Lina : C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/texture2.jpg
 
 
     //add lights in the shader
@@ -174,7 +176,7 @@ int main()
 
     viewer.scene_root->add(sphere2_node);*/
 
-    Shape* carre1 = new Carre(phong_shader);
+    Shape* carre1 = new Carre(texlight_shader,texture2);
     glm::mat4 carre1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(-2.0f, -2.0f, 2.0f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
@@ -182,6 +184,7 @@ int main()
     Node* carre1_node = new Node(carre1_mat);
 
     carre1_node->add(carre1);
+    viewer.scene_root->add(carre1_node);
 
     viewer.run();
 }

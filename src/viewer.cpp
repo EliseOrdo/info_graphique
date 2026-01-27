@@ -78,21 +78,7 @@ void Viewer::run()
     float yaw   = -90.0f;	// angle selon les y (0 pointe vers la droite donc on mets -90)
     float pitch =  0.0f;    //angle selon les x
 
-    float deltaTime = 0.0f;	// time between current frame and last frame
-    float lastFrame = 0.0f;
-
-    glm::mat4 model = glm::mat4(3.0f);
-
-    glm::mat4 rot_mat = glm::mat4(1.0f);
-    glm::mat4 tra_mat = glm::mat4(1.0f);
-    glm::mat4 sca_mat = glm::mat4(1.0f);
-
-    glm::vec3 cameraPos   = glm::vec3(0.0f, 0.25f,  0.0f); //position de la caméra
-    glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f); //
-    glm::vec3 cameraUp    = glm::vec3(0.0f, 1.0f,  0.0f); //
-
-    float yaw   = -90.0f;	// angle selon les y (0 pointe vers la droite donc on mets -90)
-    float pitch =  0.0f;    //angle selon les x
+    
 
     // Main render loop for this OpenGL window
     while (!glfwWindowShouldClose(win))
@@ -102,10 +88,6 @@ void Viewer::run()
         deltaTime = currentFrame - lastFrame;
         lastFrame = currentFrame;
 
-
-        float currentFrame = static_cast<float>(glfwGetTime());
-        deltaTime = currentFrame - lastFrame;
-        lastFrame = currentFrame;
 
         // clear draw buffer
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -125,16 +107,16 @@ void Viewer::run()
             cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * speed;
         }
         if (glfwGetKey(win, GLFW_KEY_UP) == GLFW_PRESS){
-            pitch += 1;
+            pitch += 50*deltaTime;
         }
         if (glfwGetKey(win, GLFW_KEY_DOWN) == GLFW_PRESS){
-            pitch -= 1;
+            pitch -= 50*deltaTime;
         }
         if (glfwGetKey(win, GLFW_KEY_RIGHT) == GLFW_PRESS){
-            yaw += 1;
+            yaw += 50*deltaTime;
         }
         if (glfwGetKey(win, GLFW_KEY_LEFT) == GLFW_PRESS){
-            yaw -= 1;
+            yaw -= 50*deltaTime;
         }
 
         //pour pas qua ça retourne la caméra (on peut pas regarder en arrière en levant ou baissant la tête)
