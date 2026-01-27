@@ -8,7 +8,7 @@ TexturedSphere::TexturedSphere(Shader *shader_program, Texture *texture)
 
 void TexturedSphere::draw(glm::mat4& model, glm::mat4& view, glm::mat4& projection) {
 
-    glUseProgram(this->shader_program_);
+    //glUseProgram(this->shader_program_);
 
     // TODO activate, bind the texture
     glActiveTexture(GL_TEXTURE0);
@@ -16,6 +16,8 @@ void TexturedSphere::draw(glm::mat4& model, glm::mat4& view, glm::mat4& projecti
 
 
     glUniform1i(loc_diffuse_map, 0); // TODO send the correct texture to the shader
+
+    glUseProgram(this->shader_program_);
 
     Sphere::draw(model, view, projection);
 

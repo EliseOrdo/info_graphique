@@ -10,11 +10,9 @@ uniform mat4 projection;
 
 layout (location = 0) in vec3 position;
 layout (location = 1) in vec3 aNormal;
-layout (location = 2) in vec2 texCoords;
 
 out vec3 FragPos;
 out vec3 Normal;
-//out vec3 LightPos;
 out vec2 frag_tex_coords;
 
 void main() {
@@ -22,6 +20,5 @@ void main() {
     frag_tex_coords = position.xy;
     FragPos = vec3(view * model * vec4(position, 1.0));
     Normal = mat3(transpose(inverse(view * model))) * aNormal;
-    //LightPos = vec3(view * vec4(lightPos, 1.0)); // Transform world-space light position to view-space light position
 }
 
