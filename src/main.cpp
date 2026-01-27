@@ -92,9 +92,61 @@ int main()
 
 
 
+     // lumiere vitraille
+
+    glm::vec3 vitraille_light_green = glm::vec3(0.25f, 0.5f, 0.25f);
+
+    Light vitrox;
+    vitrox.pos = glm::vec3(1.0f, 10.0f, 0.0f);
+    vitrox.color = vitraille_light_green;
+
+    Light vitrox2;
+    vitrox2.pos = glm::vec3(sqrt(3)/2, 10.0f, 0.5f);
+    vitrox2.color = vitraille_light_green;
+
+    Light vitrox4;
+    vitrox4.pos = glm::vec3(0.5f, 10.0f, sqrt(3)/2);
+    vitrox4.color = vitraille_light_green;
+
+    Light vitrox5;
+    vitrox5.pos = glm::vec3(0.0f, 10.0f, 1.0f);
+    vitrox5.color = vitraille_light_green;
+
+    Light vitrox6;
+    vitrox6.pos = glm::vec3(-0.5f, 10.0f, sqrt(3)/2);
+    vitrox6.color = vitraille_light_green;
+
+    Light vitrox8;
+    vitrox8.pos = glm::vec3(-sqrt(3)/2, 10.0f, 0.5f);
+    vitrox8.color = vitraille_light_green;
+
+    Light vitrox9;
+    vitrox9.pos = glm::vec3(-1.0f, 10.0f, 0.0f);
+    vitrox9.color = vitraille_light_green;
+
+    Light vitrox10;
+    vitrox10.pos = glm::vec3(-0.5f, 10.0f, -sqrt(3)/2);
+    vitrox10.color = vitraille_light_green;
+
+    Light vitrox12;
+    vitrox12.pos = glm::vec3(-sqrt(3)/2, 10.0f, -0.5f);
+    vitrox12.color = vitraille_light_green;
+
+    Light vitrox13;
+    vitrox13.pos = glm::vec3(0.0f, 10.0f, -1.0f);
+    vitrox13.color = vitraille_light_green;
+
+    Light vitrox14;
+    vitrox14.pos = glm::vec3(sqrt(3)/2, 1.0f, -0.5f);
+    vitrox14.color = vitraille_light_green;
+
+    Light vitrox16;
+    vitrox16.pos = glm::vec3(0.5f, 1.0f, -sqrt(3)/2);
+    vitrox16.color = vitraille_light_green;
 
     std::vector<Light> light_list = {yellox, yellox2, yellox4, yellox5, yellox6, yellox8, yellox9,
-         yellox10, yellox12, yellox13, yellox14, yellox16};
+         yellox10, yellox12, yellox13, yellox14, yellox16,vitrox, vitrox2, vitrox4, vitrox5, vitrox6, vitrox8, vitrox9,
+         vitrox10, vitrox12, vitrox13, vitrox14, vitrox16};
 
     //define textures
     Texture *texture = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/texture1.png");
@@ -112,7 +164,11 @@ int main()
 
     Texture *texturevitraille = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/vitraille.png");
 
-    //add lights in the shader
+    Texture *candle_color = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/candle_color.png");
+
+    Texture *texturesol = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/texturesol.png");
+
+    //add lights in the shader 
     texlight_shader->use();
     texlight_shader->setInt("lightCount", light_list.size());
     for (int i = 0; i < light_list.size(); i++) {
@@ -260,14 +316,81 @@ int main()
 
 
     Shape* carre1 = new Carre(texlight_shader,texturecaillou, 50.0, 50.0);
-    glm::mat4 carre1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(-2.0f, -2.0f, 0.0f))
+    glm::mat4 carre1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -5.0f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
-        * glm::rotate(glm::mat4(1.0f), glm::radians(45.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+        * glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 
     Node* carre1_node = new Node(carre1_mat);
 
     carre1_node->add(carre1);
     viewer.scene_root->add(carre1_node);
+
+    Shape* carre3 = new Carre(texlight_shader, texturecaillou, 50.0, 50.0);
+    glm::mat4 carre3_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 5.0f))
+        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
+        * glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+    Node* carre3_node = new Node(carre3_mat);
+
+    carre3_node->add(carre3);
+    viewer.scene_root->add(carre3_node);
+
+    Shape* carre4 = new Carre(texlight_shader, texturecaillou, 50.0, 50.0);
+    glm::mat4 carre4_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 5.0f))
+        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
+        * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+
+    Node* carre4_node = new Node(carre4_mat);
+
+    carre4_node->add(carre4);
+    viewer.scene_root->add(carre4_node);
+
+    Shape* carre5 = new Carre(texlight_shader, texturecaillou, 50.0, 50.0);
+    glm::mat4 carre5_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -5.0f))
+        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
+        * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+    Node* carre5_node = new Node(carre5_mat);
+
+    carre5_node->add(carre5);
+    viewer.scene_root->add(carre5_node);
+
+        Shape* carre2 = new Carre(texlight_shader,texturesol, 50.0, 50.0);
+    glm::mat4 carre2_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f))
+        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
+        * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+    Node* carre2_node = new Node(carre2_mat);
+
+    carre2_node->add(carre2);
+    viewer.scene_root->add(carre2_node);
+
+
+    Shape* carre6 = new Carre(texlight_shader, texturesol, 50.0, 50.0);
+    glm::mat4 carre6_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 6.1f))
+        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
+        * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+    Node* carre6_node = new Node(carre6_mat);
+
+    carre6_node->add(carre6);
+    viewer.scene_root->add(carre6_node);
+
+
+    Shape* vitraux = new Cylinder(texlight_shader, texturevitraille, 0.001f, 0.5f);
+
+    glm::mat4 vitraux_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 6.0f, 0.0f))
+        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
+        * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+    Node* vitraux_node = new Node(vitraux_mat);
+    vitraux_node->add(vitraux);
+    viewer.scene_root->add(vitraux_node);
+
+
+
+   
+
 
     viewer.run();
 }
