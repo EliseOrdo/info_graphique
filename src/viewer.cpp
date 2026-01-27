@@ -104,16 +104,16 @@ void Viewer::run()
             cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * speed;
         }
         if (glfwGetKey(win, GLFW_KEY_UP) == GLFW_PRESS){
-            pitch += 1;
+            pitch += 50*deltaTime;
         }
         if (glfwGetKey(win, GLFW_KEY_DOWN) == GLFW_PRESS){
-            pitch -= 1;
+            pitch -= 50*deltaTime;
         }
         if (glfwGetKey(win, GLFW_KEY_RIGHT) == GLFW_PRESS){
-            yaw += 1;
+            yaw += 50*deltaTime;
         }
         if (glfwGetKey(win, GLFW_KEY_LEFT) == GLFW_PRESS){
-            yaw -= 1;
+            yaw -= 50*deltaTime;
         }
 
         //pour pas qua ça retourne la caméra (on peut pas regarder en arrière en levant ou baissant la tête)
