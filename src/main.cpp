@@ -108,6 +108,9 @@ int main()
 
     Texture *texture3 = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/texture3.png");
 
+    Texture *candle_color = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/candle_color.png");
+
+
     Texture *texturecaillou = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/murcaillou.png");
 
     Texture *texturevitraille = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/vitraille.png");
