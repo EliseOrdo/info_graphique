@@ -5,6 +5,10 @@
 #include <cstdio>
 #include <cstdlib>
 
+
+#include <glm/glm.hpp>
+#include "glm/ext.hpp"
+
 using namespace std;
 
 Shader::Shader(const std::string& vertex_path, const std::string& fragment_path) {
@@ -83,3 +87,16 @@ GLuint Shader::compile_shader(const std::string& path, GLenum shader_type) {
 
     return shader;
 }
+
+void Shader::setVec3(const std::string& name, const glm::vec3& value) const {
+    glUniform3fv(glGetUniformLocation(glid, name.c_str()), 1, glm::value_ptr(value));
+}
+
+void Shader::setInt(const std::string& name, int value) const {
+    glUniform1i(glGetUniformLocation(glid, name.c_str()), value);
+}
+
+void Shader::use() const {
+    glUseProgram(glid);
+}
+
