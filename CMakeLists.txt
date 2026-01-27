@@ -26,11 +26,9 @@ set(SOURCES
     ${SRC_DIR}/triangle.cpp
     ${SRC_DIR}/pyramid.cpp
     ${SRC_DIR}/cylinder.cpp
-    ${SRC_DIR}/light_cylinder.cpp
     ${SRC_DIR}/sphere.cpp
     ${SRC_DIR}/texture.cpp
     ${SRC_DIR}/textured_sphere.cpp
-    ${SRC_DIR}/lighting_sphere.cpp
 )
 
 # Define Shader director
