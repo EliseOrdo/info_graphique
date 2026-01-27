@@ -33,8 +33,8 @@ int main()
     general_light.pos = glm::vec3(-15.0f, 0.0f, -4.0f);
     general_light.color = glm::vec3(0.5f, 0.0f, 0.0f);
     Light yellox;
-    yellox.pos = glm::vec3(15.0f, 0.0f, -4.0f);
-    yellox.color = glm::vec3(0.0f, 0.5f, 0.0f);
+    yellox.pos = glm::vec3(5.0f, 0.0f, -4.0f);
+    yellox.color = glm::vec3(0.0f, 1.0f, 0.0f);
 
 
     std::vector<Light> light_list = {general_light,yellox};
@@ -59,7 +59,7 @@ int main()
     float candle_height = 0.25;
     float candle_radius = 0.025;
 
-    Shape* candle = new Cylinder(texlight_shader, glm::vec3(0.2, 0.6, 0));
+    Shape* candle = new Cylinder(texlight_shader, glm::vec3(0.2, 0.6, 0), 0.1f, 0.01);
     glm::mat4 candle_mat = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, 0.0f, 0.0f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));

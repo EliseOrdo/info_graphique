@@ -90,7 +90,7 @@ void Viewer::run()
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         //Mouvements
-        float speed = 0.05f; // adjust accordingly
+        float speed = 1.5f * deltaTime; // adjust accordingly
         if (glfwGetKey(win, GLFW_KEY_W) == GLFW_PRESS){
             cameraPos += speed * cameraFront;
         }
