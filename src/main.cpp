@@ -41,12 +41,13 @@ int main()
     std::vector<Light> light_list = {general_light,yellox};
 
     //define textures
-    Texture *texture = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/texture1.png");
+    Texture *texture = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture1.png");
         // chemin Elise : /Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture1.png
         // chemin Tiph : C:/Users/tipha/Documents/Projet_info_graphique/textures/texture1.png
 
-    Texture *texture2 = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/texture2.jpg");
+    Texture *texture2 = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture2.jpg");
         //chemin Tiph : C:/Users/tipha/Documents/Projet_info_graphique/textures/texture2.jpg
+        //chemin Elise : "/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture2.jpg"
 
 
     //add lights in the shader
