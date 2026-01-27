@@ -90,7 +90,7 @@ void Viewer::run()
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         //Mouvements
-        float speed = 0.05f; // adjust accordingly
+        float speed = 1.5f * deltaTime; // adjust accordingly
         if (glfwGetKey(win, GLFW_KEY_W) == GLFW_PRESS){
             cameraPos += speed * cameraFront;
         }
@@ -104,16 +104,16 @@ void Viewer::run()
             cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * speed;
         }
         if (glfwGetKey(win, GLFW_KEY_UP) == GLFW_PRESS){
-            pitch += 1;
+            pitch += 50*deltaTime;
         }
         if (glfwGetKey(win, GLFW_KEY_DOWN) == GLFW_PRESS){
-            pitch -= 1;
+            pitch -= 50*deltaTime;
         }
         if (glfwGetKey(win, GLFW_KEY_RIGHT) == GLFW_PRESS){
-            yaw += 1;
+            yaw += 50*deltaTime;
         }
         if (glfwGetKey(win, GLFW_KEY_LEFT) == GLFW_PRESS){
-            yaw -= 1;
+            yaw -= 50*deltaTime;
         }
 
         //pour pas qua ça retourne la caméra (on peut pas regarder en arrière en levant ou baissant la tête)
