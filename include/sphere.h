@@ -5,6 +5,7 @@
 #include <vector>
 #include <glm/glm.hpp>
 
+
 class Sphere : public Shape {
 public:
     Sphere(Shader* shader_program_, int sector_count = 36, int stack_count = 18);
