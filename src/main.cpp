@@ -1,10 +1,9 @@
 #include "viewer.h"
 #include "textured_sphere.h"
-#include "lighting_sphere.h"
 #include "texture.h"
 #include "node.h"
 #include "shader.h"
-#include "light_cylinder.h"
+#include "cylinder.h"
 #include <string>
 
 #ifndef SHADER_DIR
@@ -40,7 +39,7 @@ int main()
 
     std::vector<Light> light_list = {general_light,yellox};
 
-    Texture *texture = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/texture1.png");
+    Texture *texture = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture1.png");
         // chemin Elise : /Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture1.png
         // chemin Tiph : C:/Users/tipha/Documents/Projet_info_graphique/textures/texture1.png
 
@@ -60,7 +59,7 @@ int main()
     float candle_height = 0.25;
     float candle_radius = 0.025;
 
-    Shape* candle = new LightingSphere(texlight_shader, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 1.0f, 1.0f));
+    Shape* candle = new Cylinder(texlight_shader, glm::vec3(0.2, 0.6, 0));
     glm::mat4 candle_mat = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, 0.0f, 0.0f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));

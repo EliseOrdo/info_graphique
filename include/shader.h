@@ -16,8 +16,8 @@ public:
     ~Shader();
 
     GLuint get_id();
-    void Shader::setVec3(const std::string& name, const glm::vec3& value) const;
-    void Shader::setInt(const std::string& name, int value) const;
+    void setVec3(const std::string& name, const glm::vec3& value) const;
+    void setInt(const std::string& name, int value) const;
     void use() const;
 
 private:
