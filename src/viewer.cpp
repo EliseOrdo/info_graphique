@@ -78,6 +78,8 @@ void Viewer::run()
     float yaw   = -90.0f;	// angle selon les y (0 pointe vers la droite donc on mets -90)
     float pitch =  0.0f;    //angle selon les x
 
+    
+
     // Main render loop for this OpenGL window
     while (!glfwWindowShouldClose(win))
     {
@@ -85,6 +87,7 @@ void Viewer::run()
         float currentFrame = static_cast<float>(glfwGetTime());
         deltaTime = currentFrame - lastFrame;
         lastFrame = currentFrame;
+
 
         // clear draw buffer
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -145,6 +148,7 @@ void Viewer::run()
 
         // flush render commands, and swap draw buffers
         glfwSwapBuffers(win);
+        //sleep(0.75);
         //sleep(0.75);
     }
 

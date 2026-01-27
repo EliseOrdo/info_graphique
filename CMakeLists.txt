@@ -29,6 +29,7 @@ set(SOURCES
     ${SRC_DIR}/sphere.cpp
     ${SRC_DIR}/texture.cpp
     ${SRC_DIR}/textured_sphere.cpp
+    ${SRC_DIR}/carre.cpp
 )
 
 # Define Shader director

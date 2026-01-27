@@ -5,7 +5,12 @@
 #include "node.h"
 #include "shader.h"
 #include "cylinder.h"
+#include "carre.h"
 #include <string>
+
+#ifndef M_PI
+    #define M_PI 3.14159265358979323846
+#endif
 
 #ifndef SHADER_DIR
 #error "SHADER_DIR not defined"
@@ -92,16 +97,20 @@ int main()
          yellox10, yellox12, yellox13, yellox14, yellox16};
 
     //define textures
-    Texture *texture = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture1.png");
+    Texture *texture = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/texture1.png");
         // chemin Elise : /Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture1.png
         // chemin Tiph : C:/Users/tipha/Documents/Projet_info_graphique/textures/texture1.png
+        // chemin Lina : C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/texture1.png
 
-    Texture *texture2 = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture2.jpg");
+    Texture *texture2 = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/texture2.jpg");
         //chemin Tiph : C:/Users/tipha/Documents/Projet_info_graphique/textures/texture2.jpg
-        //chemin Elise : "/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture2.jpg"
+        //chemin Lina : C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/texture2.jpg
 
-    Texture *candle_color = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/candle_color.png");
+    Texture *texture3 = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/texture3.png");
 
+    Texture *texturecaillou = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/murcaillou.png");
+
+    Texture *texturevitraille = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/vitraille.png");
 
     //add lights in the shader
     texlight_shader->use();
@@ -115,7 +124,7 @@ int main()
     glm::mat4 sphere1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -4.0f));
 
 
-    float candle_height = 0.25;
+    float candle_height = 0.0001;
     float candle_radius = 0.025;
 
 
@@ -249,6 +258,16 @@ int main()
     viewer.scene_root->add(candle_node16);
 
 
+
+    Shape* carre1 = new Carre(texlight_shader,texturecaillou, 50.0, 50.0);
+    glm::mat4 carre1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(-2.0f, -2.0f, 0.0f))
+        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
+        * glm::rotate(glm::mat4(1.0f), glm::radians(45.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+    Node* carre1_node = new Node(carre1_mat);
+
+    carre1_node->add(carre1);
+    viewer.scene_root->add(carre1_node);
 
     viewer.run();
 }
