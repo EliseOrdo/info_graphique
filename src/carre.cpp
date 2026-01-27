@@ -5,15 +5,15 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <iostream>
 
-Carre::Carre(Shader *shader_program, Texture* texture, float taille) : Shape(shader_program) , texture(texture)
+Carre::Carre(Shader *shader_program, Texture* texture, float hauteur, float largeur) : Shape(shader_program) , texture(texture)
 {
 
     loc_diffuse_map = glGetUniformLocation(this->shader_program_, "diffuse_map");
     GLfloat vertex_buffer_data[] = {
-        0.5f*taille, 0.5f*taille, 0.0f,
-        0.5f*taille, -0.5f*taille, 0.0f,
-        -0.5f*taille, -0.5f*taille, 0.0f,
-        -0.5*taille, 0.5*taille, 0.0f
+        0.5f*largeur, 0.5f*hauteur, 0.0f,
+        0.5f*largeur, -0.5f*hauteur, 0.0f,
+        -0.5f*largeur, -0.5f*hauteur, 0.0f,
+        -0.5*largeur, 0.5*hauteur, 0.0f
     };
 
     

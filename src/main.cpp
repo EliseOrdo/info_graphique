@@ -40,7 +40,7 @@ int main()
     general_light.color = glm::vec3(0.5f, 0.0f, 0.0f);
     Light yellox;
     yellox.pos = glm::vec3(15.0f, 0.0f, -4.0f);
-    yellox.color = glm::vec3(0.0f, 0.5f, 0.0f);
+    yellox.color = glm::vec3(0.5f, 0.5f, 0.0f);
 
 
     std::vector<Light> light_list = {general_light,yellox};
@@ -59,6 +59,8 @@ int main()
 
     Texture *texturecaillou = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/murcaillou.png");
 
+    Texture *texturevitraille = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/vitraille.png");
+
     //add lights in the shader
     texlight_shader->use();
     texlight_shader->setInt("lightCount", light_list.size());
@@ -73,10 +75,10 @@ int main()
 //    std::string elise = "/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/";
     //std::string tiph = "C:/Users/tipha/OneDrive/Documents/Polytech/ET3/Computer_Graphics/Projet/textures/";
 
-    float candle_height = 0.25;
+    float candle_height = 0.0001;
     float candle_radius = 0.025;
 
-    Shape* candle = new Cylinder(texlight_shader, texture);
+    Shape* candle = new Cylinder(texlight_shader, texturevitraille, candle_height);
     glm::mat4 candle_mat = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, 0.0f, 0.0f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
@@ -179,9 +181,9 @@ int main()
 
     viewer.scene_root->add(sphere2_node);*/
 
-    Shape* carre1 = new Carre(texlight_shader,texturecaillou, 50.0);
+    Shape* carre1 = new Carre(texlight_shader,texturecaillou, 50.0, 50.0);
     glm::mat4 carre1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(-2.0f, -2.0f, 0.0f))
-        * glm::scale(glm::mat4(50.0f), glm::vec3(1.0f, 1.0f, 1.0f))
+        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(45.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 
     Node* carre1_node = new Node(carre1_mat);
