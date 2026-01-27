@@ -8,7 +8,7 @@
 
 class Carre : public Shape {
 public:
-    Carre(Shader *shader_program, Texture* texture);
+    Carre(Shader *shader_program, Texture* texture, float taille);
     void draw(glm::mat4& model, glm::mat4& view, glm::mat4& projection);
     void key_handler(int key);
     virtual ~Carre();
