@@ -78,9 +78,30 @@ void Viewer::run()
     float yaw   = -90.0f;	// angle selon les y (0 pointe vers la droite donc on mets -90)
     float pitch =  0.0f;    //angle selon les x
 
+    float deltaTime = 0.0f;	// time between current frame and last frame
+    float lastFrame = 0.0f;
+
+    glm::mat4 model = glm::mat4(3.0f);
+
+    glm::mat4 rot_mat = glm::mat4(1.0f);
+    glm::mat4 tra_mat = glm::mat4(1.0f);
+    glm::mat4 sca_mat = glm::mat4(1.0f);
+
+    glm::vec3 cameraPos   = glm::vec3(0.0f, 0.25f,  0.0f); //position de la caméra
+    glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f); //
+    glm::vec3 cameraUp    = glm::vec3(0.0f, 1.0f,  0.0f); //
+
+    float yaw   = -90.0f;	// angle selon les y (0 pointe vers la droite donc on mets -90)
+    float pitch =  0.0f;    //angle selon les x
+
     // Main render loop for this OpenGL window
     while (!glfwWindowShouldClose(win))
     {
+
+        float currentFrame = static_cast<float>(glfwGetTime());
+        deltaTime = currentFrame - lastFrame;
+        lastFrame = currentFrame;
+
 
         float currentFrame = static_cast<float>(glfwGetTime());
         deltaTime = currentFrame - lastFrame;
@@ -139,6 +160,7 @@ void Viewer::run()
 
         // flush render commands, and swap draw buffers
         glfwSwapBuffers(win);
+        //sleep(0.75);
         //sleep(0.75);
     }
 
