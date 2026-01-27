@@ -15,7 +15,7 @@ void main()
     vec3 ka = vec3(0.3f);
     vec3 ambient = lightColor*ka; // calculate corrcet ambient color
 
-    // diffuse 
+    // diffuse
     vec3 norm = normalize(Normal);
     vec3 lightDir = LightPos-FragPos;// TODO calculate light direction
     float kd = 0.3f;
@@ -25,7 +25,7 @@ void main()
     // specular
     float specularStrength = 0.3;
     vec3 viewDir = normalize(-FragPos); // the viewer is always at (0,0,0) in view-space, so viewDir is (0,0,0) - Position => -Position
-    vec3 reflectDir = reflect(-lightDir, norm);  
+    vec3 reflectDir = reflect(-lightDir, norm);
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);
     vec3 specular = lightColor*specularStrength*spec;   // TODO calculate corrcet specular color
     
