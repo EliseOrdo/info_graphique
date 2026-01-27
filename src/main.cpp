@@ -20,6 +20,8 @@ int main()
     std::string shader_dir = SHADER_DIR;
     //Shader *texture_shader = new Shader(shader_dir + "texture.vert", shader_dir + "texture.frag");
 
+    Shader *reflechissant = new Shader(shader_dir + "phong.vert", shader_dir + "phong.frag");
+
     Shader *texlight_shader = new Shader(shader_dir + "texlight.vert", shader_dir + "texlight.frag");
     //glUseProgram(texlight_shader->get_id());
 
@@ -111,12 +113,23 @@ int main()
         texlight_shader->setVec3("light_list[" + std::to_string(i) + "].color", light_list[i].color);
     }
 
-    Shape* sphere1 = new TexturedSphere(texlight_shader, texture);
-    glm::mat4 sphere1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -4.0f));
+/*     Shape* sphere1 = new TexturedSphere(texlight_shader, texture);
+    glm::mat4 sphere1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -4.0f)); */
 
 
     float candle_height = 0.25;
     float candle_radius = 0.025;
+
+
+    Shape* sphere = new TexturedSphere(texlight_shader, texture2, 0.1f);
+
+    glm::mat4 sphere_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 5.0f, 0.0f))
+        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
+        * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+    
+    Node* sphere_node = new Node(sphere_mat);
+    sphere_node-> add(sphere);
+    viewer.scene_root->add(sphere_node);
 
 
     Shape* candle = new Cylinder(texlight_shader, candle_color, 0.15f, 0.02);
