@@ -4,9 +4,12 @@
 #include "glm/ext.hpp"
 #include <glm/gtc/matrix_transform.hpp>
 
-Cylinder::Cylinder(Shader *shader_program, float height, float radius, int slices)
-    : Shape(shader_program)
+Cylinder::Cylinder(Shader *shader_program, glm::vec3 object_color, 
+    float height, float radius, int slices)
+    : Shape(shader_program), object_color(object_color)
 {
+    object_color_loc = glGetUniformLocation(this->shader_program_, "objectColor");
+
     // generate vertices
     std::vector<glm::vec3> vertices;
     for (int i = 0; i < slices; i++) {
@@ -64,4 +67,6 @@ void Cylinder::draw(glm::mat4& model, glm::mat4& view, glm::mat4& projection)
     Shape::draw(model, view, projection);    
 
     glDrawElements(GL_TRIANGLE_STRIP, num_indices, GL_UNSIGNED_INT, nullptr);
+
+    glUniform3fv(object_color_loc, 1, glm::value_ptr(object_color));
 }
