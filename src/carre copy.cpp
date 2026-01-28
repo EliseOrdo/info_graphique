@@ -1,4 +1,4 @@
-#include "carre.h"
+/*#include "carre.h"
 
 #include <glm/glm.hpp>
 #include "glm/ext.hpp"
@@ -52,7 +52,7 @@ Carre::Carre(Shader *shader_program, Texture* texture, float hauteur, float larg
 
 void Carre::draw(glm::mat4& model, glm::mat4& view, glm::mat4& projection)
 {   
-    for (int i=0;i<6;i++){
+    
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, this->texture->getGLid());
     glUniform1i(loc_diffuse_map, 0);
@@ -74,4 +74,4 @@ Carre::~Carre() {
 
 void Carre::key_handler(int key) {
     return;
-}
+}*/
