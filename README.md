@@ -3,7 +3,7 @@
 In this project, we created a 3D scene representing a room with a stained glass on the roof and a circle of candle on the floor. There are different sources of light, one for each candle and one for the stained glass, we also modelised the light attenuation and the camera can move.
 
 To move the camera, you must push:
-    - Z to go forward
+    - Z to go forward \n
     - S to go backward
     - Q to go to the left
     - D to go to the right
@@ -37,4 +37,5 @@ To launch the window, simply run:
     cmake .
     make
     ./opengl_program
+
 
