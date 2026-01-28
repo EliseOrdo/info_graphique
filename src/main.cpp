@@ -95,7 +95,8 @@ int main()
 
      // lumiere vitraille
 
-    glm::vec3 vitraille_light_green = glm::vec3(0.25f, 0.25f, 0.25f);
+    glm::vec3 vitraille_light_green = glm::vec3(0.3f, 1.0f, 0.3f);
+    glm::vec3 vitraille_light_red = glm::vec3(1.0f, 1.0f, 0.3f);
 
     Light vitrox;
     vitrox.pos = glm::vec3(1.0f, 10.0f, 0.0f);
@@ -103,7 +104,7 @@ int main()
 
     Light vitrox2;
     vitrox2.pos = glm::vec3(sqrt(3)/2, 10.0f, 0.5f);
-    vitrox2.color = vitraille_light_green;
+    vitrox2.color = vitraille_light_red;
 
     Light vitrox4;
     vitrox4.pos = glm::vec3(0.5f, 10.0f, sqrt(3)/2);
@@ -111,7 +112,7 @@ int main()
 
     Light vitrox5;
     vitrox5.pos = glm::vec3(0.0f, 10.0f, 1.0f);
-    vitrox5.color = vitraille_light_green;
+    vitrox5.color = vitraille_light_red;
 
     Light vitrox6;
     vitrox6.pos = glm::vec3(-0.5f, 10.0f, sqrt(3)/2);
@@ -119,7 +120,7 @@ int main()
 
     Light vitrox8;
     vitrox8.pos = glm::vec3(-sqrt(3)/2, 10.0f, 0.5f);
-    vitrox8.color = vitraille_light_green;
+    vitrox8.color = vitraille_light_red;
 
     Light vitrox9;
     vitrox9.pos = glm::vec3(-1.0f, 10.0f, 0.0f);
@@ -127,7 +128,7 @@ int main()
 
     Light vitrox10;
     vitrox10.pos = glm::vec3(-0.5f, 10.0f, -sqrt(3)/2);
-    vitrox10.color = vitraille_light_green;
+    vitrox10.color = vitraille_light_red;
 
     Light vitrox12;
     vitrox12.pos = glm::vec3(-sqrt(3)/2, 10.0f, -0.5f);
@@ -135,15 +136,15 @@ int main()
 
     Light vitrox13;
     vitrox13.pos = glm::vec3(0.0f, 10.0f, -1.0f);
-    vitrox13.color = vitraille_light_green;
+    vitrox13.color = vitraille_light_red;
 
     Light vitrox14;
-    vitrox14.pos = glm::vec3(sqrt(3)/2, 1.0f, -0.5f);
+    vitrox14.pos = glm::vec3(sqrt(3)/2, 10.0f, -0.5f);
     vitrox14.color = vitraille_light_green;
 
     Light vitrox16;
-    vitrox16.pos = glm::vec3(0.5f, 1.0f, -sqrt(3)/2);
-    vitrox16.color = vitraille_light_green;
+    vitrox16.pos = glm::vec3(0.5f, 10.0f, -sqrt(3)/2);
+    vitrox16.color = vitraille_light_red;
 
     std::vector<Light> light_list = {yellox, yellox2, yellox4, yellox5, yellox6, yellox8, yellox9,
          yellox10, yellox12, yellox13, yellox14, yellox16,vitrox, vitrox2, vitrox4, vitrox5, vitrox6, vitrox8, vitrox9,
@@ -154,28 +155,28 @@ int main()
     
 
     //define textures
-    Texture *texture = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture1.png");
+    Texture *texture = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/texture1.png");
         // chemin Elise : /Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture1.png
         // chemin Tiph : C:/Users/tipha/Documents/Projet_info_graphique/textures/texture1.png
         // chemin Lina : C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/texture1.png
 
-    Texture *texture2 = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture2.jpg");
+    Texture *texture2 = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/texture2.jpg");
         //chemin Tiph : C:/Users/tipha/Documents/Projet_info_graphique/textures/texture2.jpg
         //chemin Lina : C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/texture2.jpg
 
-    Texture *texture3 = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture3.png");
+    Texture *texture3 = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/texture3.png");
 
-    Texture *candle_color = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/candle_color.png");
+    Texture *candle_color = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/candle_color.png");
 
-    Texture *texturecaillou = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/murcaillou.png");
+    Texture *texturecaillou = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/murcaillou.png");
 
-    Texture *texturevitraille = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/vitrail.png");
+    Texture *texturevitraille = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/vitrail.png");
 
-    Texture *candle_color = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/candle_color.png");
+    //Texture *candle_color = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/candle_color.png");
 
-    Texture *texturesol = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/texturesol.png");
+    Texture *texturesol = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/texturesol.png");
 
-    Texture *text_blanc = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/blanc.png");
+    Texture *text_blanc = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/blanc.png");
 
     //add lights in the shader 
     texlight_shader->use();
@@ -331,7 +332,7 @@ int main()
     Shape* mur1 = new Carre(texlight_shader,texturecaillou, 50.0, 50.0);
     glm::mat4 mur1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -5.0f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
-        * glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+        * glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
     Node* mur1_node = new Node(mur1_mat);
 
@@ -341,7 +342,7 @@ int main()
     Shape* mur3 = new Carre(texlight_shader, texturecaillou, 50.0, 50.0);
     glm::mat4 mur3_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 5.0f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
-        * glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+        * glm::rotate(glm::mat4(1.0f), glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
     Node* mur3_node = new Node(mur3_mat);
 
@@ -351,7 +352,7 @@ int main()
     Shape* mur4 = new Carre(texlight_shader, texturecaillou, 50.0, 50.0);
     glm::mat4 mur4_mat = glm::translate(glm::mat4(1.0f), glm::vec3(5.0f, 0.0f, 0.0f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
-        * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        * glm::rotate(glm::mat4(1.0f), glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
     Node* mur4_node = new Node(mur4_mat);
 
