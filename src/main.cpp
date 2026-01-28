@@ -6,6 +6,7 @@
 #include "shader.h"
 #include "cylinder.h"
 #include "carre.h"
+#include "cube.h"
 #include <string>
 
 #ifndef M_PI
@@ -176,7 +177,15 @@ int main()
 
     Texture *texturesol = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/texturesol.png");
 
+
+    Texture *textureplafond = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/plafond1.png");
+    Texture *texturebois = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/boi.png");
+    Texture *texturevitrailmur1 = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/vitrailmur1.png");
+    Texture *texturevitrailmur2 = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/vitrailmur2.png");
+    Texture *textureporte = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/porte.png");
+    Texture *text_blanc = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/blanc.png");
     Texture *text_blanc = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/blanc.png");
+
 
     //add lights in the shader 
     texlight_shader->use();
@@ -339,7 +348,7 @@ int main()
     mur1_node->add(mur1);
     viewer.scene_root->add(mur1_node);
 
-    Shape* mur3 = new Carre(texlight_shader, texturecaillou, 50.0, 50.0);
+    Shape* mur3 = new Carre(texlight_shader, texturecaillou, 10.0, 10.0);
     glm::mat4 mur3_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 5.0f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -349,7 +358,7 @@ int main()
     mur3_node->add(mur3);
     viewer.scene_root->add(mur3_node);
 
-    Shape* mur4 = new Carre(texlight_shader, texturecaillou, 50.0, 50.0);
+    Shape* mur4 = new Carre(texlight_shader, texturecaillou, 10.0, 10.0);
     glm::mat4 mur4_mat = glm::translate(glm::mat4(1.0f), glm::vec3(5.0f, 0.0f, 0.0f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -359,9 +368,9 @@ int main()
     mur4_node->add(mur4);
     viewer.scene_root->add(mur4_node);
 
-    Shape* mur2 = new Carre(texlight_shader, texturecaillou, 50.0, 50.0);
+    Shape* mur2 = new Carre(texlight_shader, texturebois, 10.0, 10.0);
     glm::mat4 mur2_mat = glm::translate(glm::mat4(1.0f), glm::vec3(-5.0f, 0.0f, 0.0f))
-        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
+        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 3.0f, 3.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
     Node* mur2_node = new Node(mur2_mat);
@@ -369,9 +378,9 @@ int main()
     mur2_node->add(mur2);
     viewer.scene_root->add(mur2_node);
 
-        Shape* sol1 = new Carre(texlight_shader,texturesol, 50.0, 50.0);
+        Shape* sol1 = new Carre(texlight_shader,texturesol, 10.0, 10.0);
     glm::mat4 sol1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f))
-        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
+        * glm::scale(glm::mat4(1.0f), glm::vec3(3.0f, 1.0f, 3.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 
     Node* sol1_node = new Node(sol1_mat);
@@ -380,15 +389,46 @@ int main()
     viewer.scene_root->add(sol1_node);
 
 
-    Shape* plafond1 = new Carre(texlight_shader, texturesol, 50.0, 50.0);
-    glm::mat4 plafond1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 6.1f, 0.0f))
-        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
+    Shape* plafond1 = new Carre(texlight_shader, textureplafond, 10.0, 10.0);
+    glm::mat4 plafond1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 6.01f, 0.0f))
+        * glm::scale(glm::mat4(1.0f), glm::vec3(4.0f, 1.0f, 4.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 
     Node* plafond1_node = new Node(plafond1_mat);
 
     plafond1_node->add(plafond1);
     viewer.scene_root->add(plafond1_node);
+
+
+        Shape* murvitrailv1_1 = new Carre(texlight_shader, texturevitrailmur1, 1.0, 1.0);
+    glm::mat4 murvitrailv1_1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(-2.0f, 2.0f, 4.99f))
+        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 2.0f, 2.0f))
+        * glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+    Node* murvitrailv1_1_node = new Node(murvitrailv1_1_mat);
+
+    murvitrailv1_1_node->add(murvitrailv1_1);
+    viewer.scene_root->add(murvitrailv1_1_node);
+
+            Shape* murvitrailv2_1 = new Carre(texlight_shader, texturevitrailmur2, 1.0, 1.0);
+    glm::mat4 murvitrailv2_1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(2.0f, 2.0f, 4.99f))
+        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 2.0f, 2.0f))
+        * glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+    Node* murvitrailv2_1_node = new Node(murvitrailv2_1_mat);
+
+    murvitrailv2_1_node->add(murvitrailv2_1);
+    viewer.scene_root->add(murvitrailv2_1_node);
+
+            Shape* porte1 = new Carre(texlight_shader, textureporte, 1.0, 1.0);
+    glm::mat4 porte1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 1.0f, 4.99f))
+        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 2.0f, 2.0f))
+        * glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+    Node* porte1_node = new Node(porte1_mat);
+
+    porte1_node->add(porte1);
+    viewer.scene_root->add(porte1_node);
 
 
     Shape* vitraux = new Cylinder(texlight_shader, texturevitraille, 0.001f, 0.5f);
@@ -401,8 +441,16 @@ int main()
     vitraux_node->add(vitraux);
     viewer.scene_root->add(vitraux_node);
 
+/*
+    Shape* banc1 = new Cube(texlight_shader, texturesol, 2.0, 5.0,1.0);
+    glm::mat4 banc1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f))
+        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
+        * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 
+    Node* banc1_node = new Node(banc1_mat);
 
+    banc1_node->add(banc1);
+    viewer.scene_root->add(banc1_node);*/
    
 
 
