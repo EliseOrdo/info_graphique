@@ -5,10 +5,33 @@
     #define M_PI 3.14159265358979323846
 #endif
 
-Sphere::Sphere(Shader* shader_program, int sector_count, int stack_count) :
+Sphere::Sphere(Shader* shader_program, float radius, int sector_count, int stack_count) :
     Shape(shader_program), sector_count(sector_count), stack_count(stack_count)
 {
-    buildVertices();
+    vertices.clear();
+    normals.clear();
+
+    float x = 0.0f, y = 0.0f, z = 0.0f;
+
+    float sector_step = 2.0f * M_PI / sector_count;
+    float stack_step = M_PI / stack_count;
+
+    for (int i = 0; i <= stack_count; i++) {
+        float stack_angle = M_PI / 2.0f - i * stack_step;
+        float xy = radius * std::cos(stack_angle);
+        z = radius * std::sin(stack_angle);
+
+        for (int j = 0; j <= sector_count; j++) {
+            float sector_angle = j * sector_step;
+            x = xy * std::cos(sector_angle);
+            y = xy * std::sin(sector_angle);
+            glm::vec3 vertex( x, y, z );
+            glm::vec3 normal = vertex;
+            normal = glm::normalize(normal);
+            vertices.push_back(vertex);
+            normals.push_back(normal);
+        }
+    }
     buildIndices();
 
     glGenVertexArrays(1, &VAO);
@@ -48,36 +71,6 @@ void Sphere::draw(glm::mat4& model, glm::mat4& view, glm::mat4& projection)
     Shape::draw(model, view, projection);
 
     glDrawElements(GL_TRIANGLES, num_indices, GL_UNSIGNED_INT, nullptr);
-}
-
-void Sphere::buildVertices()
-{
-    // Clear the vertex list
-    vertices.clear();
-    normals.clear();
-
-    float radius = 0.5f;
-    float x = 0.0f, y = 0.0f, z = 0.0f;
-
-    float sector_step = 2.0f * M_PI / sector_count;
-    float stack_step = M_PI / stack_count;
-
-    for (int i = 0; i <= stack_count; i++) {
-        float stack_angle = M_PI / 2.0f - i * stack_step;
-        float xy = radius * std::cos(stack_angle);
-        z = radius * std::sin(stack_angle);
-
-        for (int j = 0; j <= sector_count; j++) {
-            float sector_angle = j * sector_step;
-            x = xy * std::cos(sector_angle);
-            y = xy * std::sin(sector_angle);
-            glm::vec3 vertex( x, y, z );
-            glm::vec3 normal = vertex;
-            normal = glm::normalize(normal);
-            vertices.push_back(vertex);
-            normals.push_back(normal);
-        }
-    }
 }
 
 void Sphere::buildIndices()

@@ -1,7 +1,7 @@
 #include "textured_sphere.h"
 
-TexturedSphere::TexturedSphere(Shader *shader_program, Texture *texture)
-    : Sphere(shader_program), texture(texture)
+TexturedSphere::TexturedSphere(Shader *shader_program, Texture *texture, float radius)
+    : Sphere(shader_program, radius), texture(texture)
 {
     loc_diffuse_map = glGetUniformLocation(this->shader_program_, "diffuse_map");
 }
