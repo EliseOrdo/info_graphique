@@ -337,9 +337,9 @@ int main()
 
 
 
-    Shape* mur1 = new Carre(texlight_shader,texturecaillou, 50.0, 50.0);
+    Shape* mur1 = new Carre(texlight_shader,texturecaillou, 10.0, 10.0);
     glm::mat4 mur1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -5.0f))
-        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
+        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 3.0f, 1.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
     Node* mur1_node = new Node(mur1_mat);
@@ -349,7 +349,7 @@ int main()
 
     Shape* mur3 = new Carre(texlight_shader, texturecaillou, 10.0, 10.0);
     glm::mat4 mur3_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 5.0f))
-        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
+        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 3.0f, 1.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
     Node* mur3_node = new Node(mur3_mat);
@@ -359,7 +359,7 @@ int main()
 
     Shape* mur4 = new Carre(texlight_shader, texturecaillou, 10.0, 10.0);
     glm::mat4 mur4_mat = glm::translate(glm::mat4(1.0f), glm::vec3(5.0f, 0.0f, 0.0f))
-        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
+        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 3.0f, 1.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
     Node* mur4_node = new Node(mur4_mat);
@@ -367,7 +367,7 @@ int main()
     mur4_node->add(mur4);
     viewer.scene_root->add(mur4_node);
 
-    Shape* mur2 = new Carre(texlight_shader, texturebois, 10.0, 10.0);
+    Shape* mur2 = new Carre(texlight_shader, texturecaillou, 10.0, 10.0);
     glm::mat4 mur2_mat = glm::translate(glm::mat4(1.0f), glm::vec3(-5.0f, 0.0f, 0.0f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 3.0f, 3.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
