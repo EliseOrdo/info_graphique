@@ -32,7 +32,7 @@ void main() {
 
         float dist = length(LightPos - FragPos);
         // Atténuation: la lumière diminue avec la distance
-        float attenuation = 1.0 / (1.0 + 0.09 * dist + 0.032 * dist * dist);
+        float attenuation = 1.0 / (1.0 + 0.04 * dist + 0.01 * dist * dist);
 
         // ambient
         // define ambient strength
