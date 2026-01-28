@@ -94,7 +94,7 @@ int main()
 
      // lumiere vitraille
 
-    glm::vec3 vitraille_light_green = glm::vec3(0.25f, 0.5f, 0.25f);
+    glm::vec3 vitraille_light_green = glm::vec3(0.25f, 0.25f, 0.25f);
 
     Light vitrox;
     vitrox.pos = glm::vec3(1.0f, 10.0f, 0.0f);
@@ -162,7 +162,7 @@ int main()
 
     Texture *texturecaillou = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/murcaillou.png");
 
-    Texture *texturevitraille = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/vitraille.png");
+    Texture *texturevitraille = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/vitrail.png");
 
     Texture *candle_color = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/candle_color.png");
 
@@ -315,72 +315,72 @@ int main()
 
 
 
-    Shape* carre1 = new Carre(texlight_shader,texturecaillou, 50.0, 50.0);
-    glm::mat4 carre1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -5.0f))
+    Shape* mur1 = new Carre(texlight_shader,texturecaillou, 50.0, 50.0);
+    glm::mat4 mur1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -5.0f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 
-    Node* carre1_node = new Node(carre1_mat);
+    Node* mur1_node = new Node(mur1_mat);
 
-    carre1_node->add(carre1);
-    viewer.scene_root->add(carre1_node);
+    mur1_node->add(mur1);
+    viewer.scene_root->add(mur1_node);
 
-    Shape* carre3 = new Carre(texlight_shader, texturecaillou, 50.0, 50.0);
-    glm::mat4 carre3_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 5.0f))
+    Shape* mur3 = new Carre(texlight_shader, texturecaillou, 50.0, 50.0);
+    glm::mat4 mur3_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 5.0f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 
-    Node* carre3_node = new Node(carre3_mat);
+    Node* mur3_node = new Node(mur3_mat);
 
-    carre3_node->add(carre3);
-    viewer.scene_root->add(carre3_node);
+    mur3_node->add(mur3);
+    viewer.scene_root->add(mur3_node);
 
-    Shape* carre4 = new Carre(texlight_shader, texturecaillou, 50.0, 50.0);
-    glm::mat4 carre4_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 5.0f))
+    Shape* mur4 = new Carre(texlight_shader, texturecaillou, 50.0, 50.0);
+    glm::mat4 mur4_mat = glm::translate(glm::mat4(1.0f), glm::vec3(5.0f, 0.0f, 0.0f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
-    Node* carre4_node = new Node(carre4_mat);
+    Node* mur4_node = new Node(mur4_mat);
 
-    carre4_node->add(carre4);
-    viewer.scene_root->add(carre4_node);
+    mur4_node->add(mur4);
+    viewer.scene_root->add(mur4_node);
 
-    Shape* carre5 = new Carre(texlight_shader, texturecaillou, 50.0, 50.0);
-    glm::mat4 carre5_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -5.0f))
+    Shape* mur2 = new Carre(texlight_shader, texturecaillou, 50.0, 50.0);
+    glm::mat4 mur2_mat = glm::translate(glm::mat4(1.0f), glm::vec3(-5.0f, 0.0f, 0.0f))
+        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
+        * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+
+    Node* mur2_node = new Node(mur2_mat);
+
+    mur2_node->add(mur2);
+    viewer.scene_root->add(mur2_node);
+
+        Shape* sol1 = new Carre(texlight_shader,texturesol, 50.0, 50.0);
+    glm::mat4 sol1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 
-    Node* carre5_node = new Node(carre5_mat);
+    Node* sol1_node = new Node(sol1_mat);
 
-    carre5_node->add(carre5);
-    viewer.scene_root->add(carre5_node);
+    sol1_node->add(sol1);
+    viewer.scene_root->add(sol1_node);
 
-        Shape* carre2 = new Carre(texlight_shader,texturesol, 50.0, 50.0);
-    glm::mat4 carre2_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f))
+
+    Shape* plafond1 = new Carre(texlight_shader, texturesol, 50.0, 50.0);
+    glm::mat4 plafond1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 6.1f, 0.0f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 
-    Node* carre2_node = new Node(carre2_mat);
+    Node* plafond1_node = new Node(plafond1_mat);
 
-    carre2_node->add(carre2);
-    viewer.scene_root->add(carre2_node);
-
-
-    Shape* carre6 = new Carre(texlight_shader, texturesol, 50.0, 50.0);
-    glm::mat4 carre6_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 6.1f))
-        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
-        * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-
-    Node* carre6_node = new Node(carre6_mat);
-
-    carre6_node->add(carre6);
-    viewer.scene_root->add(carre6_node);
+    plafond1_node->add(plafond1);
+    viewer.scene_root->add(plafond1_node);
 
 
     Shape* vitraux = new Cylinder(texlight_shader, texturevitraille, 0.001f, 0.5f);
 
     glm::mat4 vitraux_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 6.0f, 0.0f))
-        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
+        * glm::scale(glm::mat4(0.05f), glm::vec3(5.0f, 1.0f, 5.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 
     Node* vitraux_node = new Node(vitraux_mat);
