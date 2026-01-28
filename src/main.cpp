@@ -169,11 +169,9 @@ int main()
 
     Texture *texturecaillou = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/murcaillou.png");
 
-    Texture *texturevitraille = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/vitrail.png");
+    Texture *texturevitraille = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/vitrail.png");
 
-    Texture *candle_color = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/candle_color.png");
-
-    Texture *texturesol = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/texturesol.png");
+    Texture *texturesol = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texturesol.png");
 
     Texture *text_blanc = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/blanc.png");
 
