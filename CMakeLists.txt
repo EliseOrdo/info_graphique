@@ -30,6 +30,7 @@ set(SOURCES
     ${SRC_DIR}/texture.cpp
     ${SRC_DIR}/textured_sphere.cpp
     ${SRC_DIR}/carre.cpp
+    ${SRC_DIR}/emm_cylinder.cpp
 )
 
 # Define Shader director

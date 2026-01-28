@@ -6,11 +6,8 @@
 #include "shader.h"
 #include "cylinder.h"
 #include "carre.h"
+#include "emm_cylinder.h"
 #include <string>
-
-#ifndef M_PI
-    #define M_PI 3.14159265358979323846
-#endif
 
 #ifndef M_PI
     #define M_PI 3.14159265358979323846
@@ -30,6 +27,8 @@ int main()
     //Shader *texture_shader = new Shader(shader_dir + "texture.vert", shader_dir + "texture.frag");
 
     Shader *texlight_shader = new Shader(shader_dir + "texlight.vert", shader_dir + "texlight.frag");
+
+    Shader *emm_shader = new Shader(shader_dir + "emissive.vert", shader_dir + "emissive.frag");
     //glUseProgram(texlight_shader->get_id());
 
     //light
@@ -94,7 +93,6 @@ int main()
     yellox16.pos = glm::vec3(0.5f, -0.2f, -sqrt(3)/2);
     yellox16.color = candle_light;
 
-
     std::vector<Light> light_list = {yellox, yellox2, yellox4, yellox5, yellox6, yellox8, yellox9,
         yellox10, yellox12, yellox13, yellox14, yellox16};
 
@@ -144,6 +142,14 @@ int main()
     float candle_height = 0.0001;
     float candle_radius = 0.025;
 
+
+    Shape* test = new Emm_cylinder(emm_shader, candle_color, candle_light, 0.015, 0.002);
+
+    glm::mat4 test_mat = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, -0.2f, 0.0f))
+        * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+    Node* test_node = new Node(test_mat);
+    test_node-> add(test);
+    viewer.scene_root->add(test_node);
 
     Shape* candle = new Cylinder(texlight_shader, candle_color, 0.15f, 0.02);
 
