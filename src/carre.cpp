@@ -13,7 +13,7 @@ Carre::Carre(Shader *shader_program, Texture* texture, float hauteur, float larg
         0.5f*largeur, 0.5f*hauteur, 0.0f,
         0.5f*largeur, -0.5f*hauteur, 0.0f,
         -0.5f*largeur, -0.5f*hauteur, 0.0f,
-        -0.5*largeur, 0.5*hauteur, 0.0f
+        -0.5f*largeur, 0.5f*hauteur, 0.0f
     };
 
     
