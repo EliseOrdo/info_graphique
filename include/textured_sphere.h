@@ -6,7 +6,7 @@
 
 class TexturedSphere : public Sphere {
 public:
-    TexturedSphere(Shader *shader_program, Texture *texture);
+    TexturedSphere(Shader *shader_program, Texture *texture, float radius = 1);
 
     virtual void draw(glm::mat4& model, glm::mat4& view, glm::mat4& projection) override;
 
