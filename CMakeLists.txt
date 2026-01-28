@@ -30,7 +30,7 @@ set(SOURCES
     ${SRC_DIR}/texture.cpp
     ${SRC_DIR}/textured_sphere.cpp
     ${SRC_DIR}/carre.cpp
-    ${SRC_DIR}/cube.cpp
+    ${SRC_DIR}/cube1.cpp
 )
 
 # Define Shader director
@@ -50,3 +50,4 @@ add_subdirectory(${GLM_DIR})
 # Executable
 add_executable(opengl_program ${SOURCES})
 target_link_libraries(opengl_program ${LIBS})
+
