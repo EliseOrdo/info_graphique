@@ -5,7 +5,12 @@
 #include "node.h"
 #include "shader.h"
 #include "cylinder.h"
+#include "carre.h"
 #include <string>
+
+#ifndef M_PI
+    #define M_PI 3.14159265358979323846
+#endif
 
 #ifndef M_PI
     #define M_PI 3.14159265358979323846
@@ -95,12 +100,12 @@ int main()
     
 
     //define textures
-    Texture *texture = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture1.png");
+    Texture *texture = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/texture1.png");
         // chemin Elise : /Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture1.png
         // chemin Tiph : C:/Users/tipha/Documents/Projet_info_graphique/textures/texture1.png
         // chemin Lina : C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/texture1.png
 
-    Texture *texture2 = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture2.jpg");
+    Texture *texture2 = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/texture2.jpg");
         //chemin Tiph : C:/Users/tipha/Documents/Projet_info_graphique/textures/texture2.jpg
         //chemin Lina : C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/texture2.jpg
 
@@ -128,6 +133,7 @@ int main()
         * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 
 
+    float candle_height = 0.0001;
     float candle_height = 0.0001;
     float candle_radius = 0.025;
 
@@ -257,6 +263,18 @@ int main()
     Node* candle_node16 = new Node(candle_mat16);
     candle_node16-> add(candle16);
     viewer.scene_root->add(candle_node16);
+
+
+
+    Shape* carre1 = new Carre(texlight_shader,texturecaillou, 50.0, 50.0);
+    glm::mat4 carre1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(-2.0f, -2.0f, 0.0f))
+        * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f))
+        * glm::rotate(glm::mat4(1.0f), glm::radians(45.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+    Node* carre1_node = new Node(carre1_mat);
+
+    carre1_node->add(carre1);
+    viewer.scene_root->add(carre1_node);
 
     viewer.run();
 }
