@@ -13,6 +13,7 @@
 class Viewer {
 public:
     Viewer(int width=640, int height=480);
+    
 
     void run();
     void on_key(int key);
