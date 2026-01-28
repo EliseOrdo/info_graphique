@@ -41,8 +41,15 @@ void main() {
         vec3 norm = normalize(Normal);
         vec3 lightDir = normalize(LightPos-FragPos);// calculate light direction
         float kd = 0.5f;
-        float diff = kd*(dot(lightDir,norm)); // calculate correct diffuse strength
-        vec3 diffuse = diff * lightColor;
+
+        // Distance entre le fragment et la pyramide
+        float dist = length(LightPos - FragPos);
+        
+        // Atténuation: la lumière diminue avec la distance
+        float attenuation = 1.0 / (1.0 + 0.09 * dist + 0.032 * dist * dist);
+
+        float diff = kd*max(dot(lightDir,norm), 0.0f); // calculate correct diffuse strength
+        vec3 diffuse = diff * lightColor * attenuation;
     
         // specular
         float specularStrength = 1.0;
