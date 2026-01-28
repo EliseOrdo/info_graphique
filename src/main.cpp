@@ -176,15 +176,12 @@ int main()
 
     Texture *texturesol = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/texturesol.png");
 
-<<<<<<< HEAD
     Texture *textureplafond = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/plafond1.png");
     Texture *texturebois = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/boi.png");
     Texture *texturevitrailmur1 = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/vitrailmur1.png");
     Texture *texturevitrailmur2 = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/vitrailmur2.png");
     Texture *textureporte = new Texture("C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/porte.png");
-=======
     Texture *text_blanc = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/blanc.png");
->>>>>>> aa53bf42506f79d1529a013df62abcbb90931d9b
 
     //add lights in the shader 
     texlight_shader->use();
