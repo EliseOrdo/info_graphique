@@ -50,3 +50,4 @@ add_subdirectory(${GLM_DIR})
 # Executable
 add_executable(opengl_program ${SOURCES})
 target_link_libraries(opengl_program ${LIBS})
+
