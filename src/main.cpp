@@ -432,7 +432,7 @@ int main()
     viewer.scene_root->add(porte1_node);
 
 
-    Shape* vitraux = new Cylinder(texlight_shader, texturevitraille, 0.001f, 0.5f);
+    Shape* vitraux = new Cylinder(texlight_shader, texturevitrail, 0.001f, 0.5f);
 
     glm::mat4 vitraux_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 6.0f, 0.0f))
         * glm::scale(glm::mat4(0.05f), glm::vec3(5.0f, 1.0f, 5.0f))
