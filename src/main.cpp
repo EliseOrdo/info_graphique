@@ -156,34 +156,34 @@ int main()
     
 
     //define textures
-    Texture *texture = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture1.png");
+    Texture *texture = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/texture1.png");
         // chemin Elise : /Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture1.png
         // chemin Tiph : C:/Users/tipha/Documents/Projet_info_graphique/textures/texture1.png
         // chemin Lina : C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/texture1.png
 
-    Texture *texture2 = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture2.jpg");
+    Texture *texture2 = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/texture2.jpg");
         //chemin Tiph : C:/Users/tipha/Documents/Projet_info_graphique/textures/texture2.jpg
         //chemin Lina : C:/Users/Newteam-Consulting/Documents/infopasgraphique/info_graphique/textures/texture2.jpg
 
-    Texture *texture3 = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texture3.png");
+    Texture *texture3 = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/texture3.png");
 
-    Texture *candle_color = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/candle_color.png");
+    Texture *candle_color = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/candle_color.png");
 
-    Texture *texturecaillou = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/murcaillou.png");
+    Texture *texturecaillou = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/murcaillou.png");
 
-    Texture *texturevitraille = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/vitrail.png");
+    Texture *texturevitraille = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/vitrail.png");
 
     //Texture *candle_color = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/candle_color.png");
 
-    Texture *texturesol = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/texturesol.png");
+    Texture *texturesol = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/texturesol.png");
 
 
-    Texture *textureplafond = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/plafond1.png");
-    Texture *texturebois = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/boi.png");
-    Texture *texturevitrailmur1 = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/vitrailmur1.png");
-    Texture *texturevitrailmur2 = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/vitrailmur2.png");
-    Texture *textureporte = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/porte.png");
-    Texture *text_blanc = new Texture("/Users/eliseordoquy/Programmation/OpenGL/info_graphique/textures/blanc.png");
+    Texture *textureplafond = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/plafond1.png");
+    Texture *texturebois = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/boi.png");
+    Texture *texturevitrailmur1 = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/vitrailmur1.png");
+    Texture *texturevitrailmur2 = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/vitrailmur2.png");
+    Texture *textureporte = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/porte.png");
+    Texture *text_blanc = new Texture("C:/Users/tipha/Documents/Projet_info_graphique/textures/blanc.png");
 
 
     //add lights in the shader 
@@ -367,7 +367,7 @@ int main()
     mur4_node->add(mur4);
     viewer.scene_root->add(mur4_node);
 
-    Shape* mur2 = new Carre(texlight_shader, texturebois, 10.0, 10.0);
+    Shape* mur2 = new Carre(texlight_shader, texturecaillou, 10.0, 10.0);
     glm::mat4 mur2_mat = glm::translate(glm::mat4(1.0f), glm::vec3(-5.0f, 0.0f, 0.0f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 3.0f, 3.0f))
         * glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -402,7 +402,7 @@ int main()
         Shape* murvitrailv1_1 = new Carre(texlight_shader, texturevitrailmur1, 1.0, 1.0);
     glm::mat4 murvitrailv1_1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(-2.0f, 2.0f, 4.99f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 2.0f, 2.0f))
-        * glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+        * glm::rotate(glm::mat4(1.0f), glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
     Node* murvitrailv1_1_node = new Node(murvitrailv1_1_mat);
 
@@ -412,7 +412,7 @@ int main()
             Shape* murvitrailv2_1 = new Carre(texlight_shader, texturevitrailmur2, 1.0, 1.0);
     glm::mat4 murvitrailv2_1_mat = glm::translate(glm::mat4(1.0f), glm::vec3(2.0f, 2.0f, 4.99f))
         * glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 2.0f, 2.0f))
-        * glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+        * glm::rotate(glm::mat4(1.0f), glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
     Node* murvitrailv2_1_node = new Node(murvitrailv2_1_mat);
 
