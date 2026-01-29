@@ -13,6 +13,10 @@ To move the camera, you must push: Z to go forward, S to go backward,
 
 
 
+    https://github.com/user-attachments/assets/c6291c5a-f18d-4c15-8c20-94b7ccf792ac
+
+
+
 
 
 
@@ -38,6 +42,7 @@ To launch the window, simply run:
     cmake .
     make
     ./opengl_program
+
 
 
 
